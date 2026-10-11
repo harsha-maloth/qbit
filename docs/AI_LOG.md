@@ -38,3 +38,6 @@ Handoff block appended.
 
 ### 2026-10-11 12:56 UTC | feat | Add anon-key verification script and record staging project
 scripts/check-anon.sh covers ping, table reads, direct insert, admin RPCs, signup, apply origin/CORS/validation. Could not run: sandbox egress blocks supabase.co (403 from proxy), so project state is unverified. Staging ref recorded in PROJECT_CONTEXT; no keys committed.
+
+### 2026-10-11 13:09 UTC | chore | Staging backend deployed and verified
+Migration applied via SQL Editor (CLI db push blocked by network on DB ports). apply function deployed with ALLOWED_ORIGINS/SITE_URL/IP_HASH_SALT secrets. scripts/check-anon.sh: 16/16 pass. Still pending: Turnstile + Resend secrets, first admin invite, real submission test, migration repair, add staging origin.

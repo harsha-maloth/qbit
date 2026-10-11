@@ -19,7 +19,7 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [x] Migration: tables, RLS, rate limits, ping, purge (supabase/migrations)
 - [x] Edge Function `apply`
 - [x] Reviewers table, is_reviewer/is_admin, update_application RPC, audit log, admin view
-- [ ] Apply migration + deploy `apply` to staging (needs `supabase link` + DB password; owner or CI runs it)
+- [x] Apply migration + deploy `apply` to staging (needs `supabase link` + DB password; owner or CI runs it)
 - [x] scripts/check-anon.sh: anon-key RLS, RPC, signup and apply-function checks (owner runs it; sandbox cannot reach supabase.co)
 - [ ] Add GH Pages staging origin to ALLOWED_ORIGINS
 - [ ] Automated RLS tests: anon and non-reviewer get nothing from applications/application_events/reviewers; reviewer cannot read ip_hash, edit applicant fields, or delete
