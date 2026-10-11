@@ -36,10 +36,14 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [ ] Team/program data in content files
 
 ## Phase D: Pages, form, admin (days 8-18)
-- [ ] Replace temporary noindex stubs (mission, philosophy, team, programs, apply) and drop them from STUBS in astro.config.mjs
+- [x] Mission, Philosophy, Team, Programs pages built (unbuilt/unchecked until owner runs `npm run check && npm run build`)
+- [ ] Replace the remaining noindex stub (apply) and drop it from STUBS in astro.config.mjs
 - [ ] Create public/og-image.png (1200x630) and replace placeholder logo.svg; fix robots.txt sitemap domain
-- [ ] Home, Mission, Philosophy, Team, Programs, FAQ, Privacy, Terms, 404
-- [ ] Optimized images with alt text; old-URL redirect stubs (.html and Phillosophy)
+- [x] Home, Mission, Philosophy, Team, Programs, FAQ, 404 written
+- [ ] Privacy + Terms: DRAFTS written (noindex, [OWNER TO CONFIRM] markers); owner/lawyer review, then remove from STUBS
+- [ ] OWNER: real bios + photos for 7 team members; extra FAQ answers (cost, length, timeline)
+- [ ] Optimized images with alt text
+- [ ] Old-URL 301s (.html, Phillosophy) done in public/.htaccess (Phase F), not as Astro pages
 - [ ] Apply form UI (validation, loading, Turnstile, thanks page, mailto fallback)
 - [ ] Admin UI island: magic-link login, access-denied state
 - [ ] Applications table: pagination, search, filters

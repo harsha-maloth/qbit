@@ -3,6 +3,7 @@
 All notable changes, newest first. Maintained by `scripts/log.sh`.
 
 ## [Unreleased]
+- **feat** (2026-10-11): Add content pages: mission, philosophy, team, programs, faq; privacy/terms drafts
 - **chore** (2026-10-11): Upgrade to Astro 7
 - **chore** (2026-10-11): Upgrade to Astro 7
 - **fix** (2026-10-11): Fix astro check findings

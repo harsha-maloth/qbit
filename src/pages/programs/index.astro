@@ -1,15 +1,29 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import FeatureCard from "../../components/FeatureCard.astro";
+import CTAPanel from "../../components/CTAPanel.astro";
 import Button from "../../components/Button.astro";
+import { programs } from "../../data/programs";
 ---
 
-<!-- TEMPORARY STUB: replaced in Phase D (see docs/ROADMAP.md). noindex until real content lands. -->
-<BaseLayout title="Programs" description="Collective Qubits programs for quantum systems, responsible AI, neurotech, and systems design." noindex>
+<BaseLayout title="Programs" description="Collective Qubits programs for quantum systems, responsible AI, neurotech and sensing, and systems design.">
+  <PageHeader badge="Programs" title="Focus areas where collective intelligence makes the difference.">
+    We support teams building at the intersection of science, technology, and society across these areas.
+  </PageHeader>
+
   <section class="section">
-    <div class="container section-head">
-      <h1 class="section-title">Programs</h1>
-      <p class="section-subtitle">This page is being rebuilt. Check back soon, or join the community on Discord in the meantime.</p>
-      <Button href="/">Back to home</Button>
+    <div class="container">
+      <div class="grid-2">
+        {programs.map((p) => <FeatureCard label="Program" title={p.name}>{p.summary}</FeatureCard>)}
+      </div>
     </div>
+  </section>
+
+  <section class="section">
+    <CTAPanel title="Not sure where your project fits?">
+      Apply anyway. Describe what you are building and our team will tell you how we can help.
+      <Button slot="actions" href="/apply/">Apply now</Button>
+    </CTAPanel>
   </section>
 </BaseLayout>

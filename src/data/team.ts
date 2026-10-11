@@ -7,10 +7,19 @@ export interface TeamMember {
   bio?: string;
 }
 
-// Names and roles come from legacy/TEAM.html. Placeholder bios were intentionally dropped.
+// Names and roles come from legacy/TEAM.html. Seven members shared one copied bio; it was dropped
+// on purpose. Add a real `bio` and `photo` per person when supplied (docs/PROJECT_CONTEXT.md).
 export const team: TeamMember[] = [
-  { name: "Saatwik Chatkara", role: "Founder & CEO" },
-  { name: "Advait M Dhola", role: "Technical Advisor" },
+  {
+    name: "Saatwik Chatkara",
+    role: "Founder & CEO",
+    bio: "Leads strategy for founder journeys, program design, and product-market readiness across science-forward ventures.",
+  },
+  {
+    name: "Advait M Dhola",
+    role: "Technical Advisor",
+    bio: "Supports complex systems development in quantum, photonics, AI-enabled hardware, and next-gen computational platforms.",
+  },
   { name: "Mohamed Armoon Shaliq", role: "Community & Operations" },
   { name: "Disha Parasu", role: "Community & Operations" },
   { name: "Sudhi Sharma", role: "Community & Operations" },

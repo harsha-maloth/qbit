@@ -1,15 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Button from "../../components/Button.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ProfileCard from "../../components/ProfileCard.astro";
+import { team } from "../../data/team";
 ---
 
-<!-- TEMPORARY STUB: replaced in Phase D (see docs/ROADMAP.md). noindex until real content lands. -->
-<BaseLayout title="Team" description="The builders, thinkers, and operators behind Collective Qubits." noindex>
+<BaseLayout title="Team" description="Meet the founders, advisors, and operators behind Collective Qubits.">
+  <PageHeader badge="Team" title="Meet the people helping founders turn science and systems thinking into launch-ready ventures.">
+    Our collective includes founders, researchers, operators, and mentors with deep experience in emerging technology and ecosystem design.
+  </PageHeader>
+
   <section class="section">
-    <div class="container section-head">
-      <h1 class="section-title">Team</h1>
-      <p class="section-subtitle">This page is being rebuilt. Check back soon, or join the community on Discord in the meantime.</p>
-      <Button href="/">Back to home</Button>
+    <div class="container grid-3">
+      {team.map((m) => <ProfileCard name={m.name} role={m.role} photo={m.photo} bio={m.bio} />)}
     </div>
   </section>
 </BaseLayout>

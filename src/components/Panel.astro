@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<section class="panel">
+  <h2>{title}</h2>
+  <p><slot /></p>
+</section>
+
+<style>
+  .panel {
+    border-radius: var(--radius); border: 1px solid var(--line); padding: 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  }
+  h2 { font-size: 1.35rem; }
+  p { margin-top: 1rem; color: var(--text-muted); line-height: 1.8; }
+</style>

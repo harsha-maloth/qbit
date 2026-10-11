@@ -1,15 +1,43 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Panel from "../../components/Panel.astro";
+import FeatureCard from "../../components/FeatureCard.astro";
+import Badge from "../../components/Badge.astro";
+import CTAPanel from "../../components/CTAPanel.astro";
 import Button from "../../components/Button.astro";
 ---
 
-<!-- TEMPORARY STUB: replaced in Phase D (see docs/ROADMAP.md). noindex until real content lands. -->
-<BaseLayout title="Philosophy" description="How Collective Qubits thinks about building deep-tech teams, systems, and community." noindex>
+<BaseLayout title="Philosophy" description="How Collective Qubits builds deep-tech teams: with intent, curiosity, and a strong sense of human impact.">
+  <PageHeader badge="Philosophy" title="We build with intent, curiosity, and a strong sense of human impact.">
+    Innovation is not accidental. We choose problems that matter, design with empathy, and measure progress by the quality of the outcomes we create.
+  </PageHeader>
+
   <section class="section">
-    <div class="container section-head">
-      <h1 class="section-title">Philosophy</h1>
-      <p class="section-subtitle">This page is being rebuilt. Check back soon, or join the community on Discord in the meantime.</p>
-      <Button href="/">Back to home</Button>
+    <div class="container">
+      <div class="grid-2">
+        <Panel title="Context matters">Technical breakthroughs are strongest when they are rooted in user needs, ethical judgment, and long-term resilience.</Panel>
+        <Panel title="Collaboration over heroics">We believe complex problems are best solved by teams that bring diverse expertise, shared ownership, and open curiosity.</Panel>
+      </div>
+
+      <div class="grid-3 mt-lg">
+        <FeatureCard label="Explore" title="Novel connections">We create space for experimentation that reveals new directions at the intersection of science, design, and society.</FeatureCard>
+        <FeatureCard label="Refine" title="Thoughtful iteration">Every decision is tested for feasibility, ethics, accessibility, and long-term value.</FeatureCard>
+        <FeatureCard label="Amplify" title="Meaningful impact">We help teams create work that respects systems and improves the lives of the people it touches.</FeatureCard>
+      </div>
+
+      <div class="section-head mt-lg">
+        <Badge>Why it matters</Badge>
+        <h2 class="section-title">Deep tech requires both rigor and care.</h2>
+        <p class="section-subtitle">We cultivate teams that are curious about the world they are shaping and deliberate about the futures they are helping to build.</p>
+      </div>
     </div>
+  </section>
+
+  <section class="section">
+    <CTAPanel title="Share our way of working?">
+      Join the community on Discord or apply with your project.
+      <Button slot="actions" href="/apply/">Apply now</Button>
+    </CTAPanel>
   </section>
 </BaseLayout>

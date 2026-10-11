@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import { site } from "../../data/site";
+
+// TODO(owner): add answers about cost, program length, and selection timeline once confirmed.
+// Only facts already decided in docs/ are answered here; nothing is invented.
+const faqs = [
+  { q: "Who is Collective Qubits for?", a: "Founders, researchers, and hybrid teams building at the intersection of quantum systems, responsible AI, photonics, neurotech, and complex systems." },
+  { q: "What stage should my project be at?", a: "The application asks you to choose one of three stages: Early Prototype, Research Phase, or Pre-launch." },
+  { q: "How do I apply?", a: "Use the Apply page. You will tell us about yourself, your affiliation, your project focus, and what you are building." },
+  { q: "What happens after I apply?", a: "You receive a confirmation email with a reference. Our team then reviews your application and gets back to you." },
+  { q: "How is my application data handled?", a: "We store only what the form asks for, and we do not store your IP address in readable form. Read the Privacy page for details, including how long data is kept." },
+  { q: "How can I join the community?", a: `Join our Discord at ${site.discord}. You do not need to apply to be part of the conversation.` },
+];
+---
+
+<BaseLayout title="FAQ" description="Answers to common questions about applying to Collective Qubits.">
+  <PageHeader badge="FAQ" title="Frequently asked questions.">
+    Quick answers before you apply.
+  </PageHeader>
+
+  <section class="section">
+    <div class="container prose">
+      {faqs.map((f) => (
+        <details class="faq">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq { border-bottom: 1px solid var(--line); padding: 1rem 0; }
+  summary { cursor: pointer; font-weight: 700; color: var(--text); font-size: 1.05rem; }
+  summary:hover { color: var(--accent); }
+</style>

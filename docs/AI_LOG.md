@@ -56,3 +56,6 @@ Upgraded astro 5 to 7.3.8, @astrojs/check and sitemap. check and build pass; npm
 
 ### 2026-10-11 13:26 UTC | chore | Upgrade to Astro 7
 astro 5.18 -> 7.3.8, @astrojs/check 0.9.10, @astrojs/sitemap 3.7.4. astro check 0 errors, build 7 pages, npm audit 0 vulnerabilities.
+
+### 2026-10-11 13:28 UTC | feat | Add content pages: mission, philosophy, team, programs, faq; privacy/terms drafts
+Ported legacy Mission/Philosophy text, Team from data file (initials fallback, 2 real bios kept), Programs from data, FAQ from decided facts only. Privacy/Terms are noindex drafts with OWNER TO CONFIRM markers, excluded from sitemap. New PageHeader and Panel components, .prose styles, footer links for FAQ/Privacy/Terms. Redirects for old URLs deferred to .htaccess. NOT BUILT: sandbox has no npm access; owner must run npm run check && npm run build.

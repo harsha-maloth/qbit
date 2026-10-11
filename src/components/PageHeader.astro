@@ -1,0 +1,21 @@
+---
+import Badge from "./Badge.astro";
+interface Props {
+  badge: string;
+  title: string;
+}
+const { badge, title } = Astro.props;
+---
+
+<section class="section page-hero">
+  <div class="container section-head">
+    <Badge>{badge}</Badge>
+    <h1 class="section-title page-title">{title}</h1>
+    <p class="section-subtitle"><slot /></p>
+  </div>
+</section>
+
+<style>
+  .page-hero { padding-bottom: 1rem; }
+  .page-title { font-size: clamp(2rem, 3.6vw, 3.75rem); max-width: 22ch; margin-bottom: 0; }
+</style>

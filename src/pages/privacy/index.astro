@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+---
+
+<!-- DRAFT: describes what the system actually does (supabase/migrations + apply function).
+     Items marked OWNER TO CONFIRM need real answers. Have it reviewed before launch. -->
+<BaseLayout title="Privacy Policy" description="How Collective Qubits collects, uses, and protects the information you share when you apply." noindex>
+  <PageHeader badge="Privacy" title="Privacy Policy">
+    What we collect when you apply, why, and how long we keep it.
+  </PageHeader>
+
+  <section class="section">
+    <div class="container prose">
+      <p class="draft-note"><strong>Draft.</strong> This policy is pending owner review and has not been checked by a lawyer. Items marked [OWNER TO CONFIRM] need a real answer before launch.</p>
+
+      <h2>Who we are</h2>
+      <p>Collective Qubits ([OWNER TO CONFIRM: legal entity name and registered address]). Contact: [OWNER TO CONFIRM: privacy email address].</p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li>The details you enter in the application form: name, email address, affiliation, project stage, project focus, project summary, and optionally a website and team size.</li>
+        <li>Your confirmation that you agree to this policy.</li>
+        <li>A one-way, salted hash of your IP address, used only to limit repeated submissions. We cannot recover your IP address from it, and the hash is not shown to our reviewers.</li>
+        <li>Our reviewers' notes and status changes about your application.</li>
+      </ul>
+
+      <h2>Why we use it</h2>
+      <p>To review your application, contact you about it, and protect the form from spam and abuse. We do not sell your information.</p>
+
+      <h2>Who processes it for us</h2>
+      <ul>
+        <li>Supabase, which hosts our database and sign-in for reviewers.</li>
+        <li>Resend, which sends our confirmation and notification emails.</li>
+        <li>Cloudflare Turnstile, which checks that a submission comes from a person.</li>
+        <li>Our web hosting provider ([OWNER TO CONFIRM]).</li>
+        <li>Analytics: [OWNER TO CONFIRM: tool chosen, or "none"]. We aim to use a cookie-free tool.</li>
+      </ul>
+      <p>These providers may process data outside your country. [OWNER TO CONFIRM: Supabase region and transfer wording.]</p>
+
+      <h2>How long we keep it</h2>
+      <p>Applications that are declined are deleted 12 months after their last update. Rate-limit records are deleted within 2 days. [OWNER TO CONFIRM: retention period for accepted applications and for withdrawn requests.]</p>
+
+      <h2>Your rights</h2>
+      <p>You can ask us to show you, correct, or delete your information, or withdraw your consent, by emailing [OWNER TO CONFIRM: privacy email address]. [OWNER TO CONFIRM: add jurisdiction-specific wording for India's Digital Personal Data Protection Act and, if applicable, the GDPR, including how to complain.]</p>
+
+      <h2>Cookies</h2>
+      <p>The site does not set cookies for tracking. [OWNER TO CONFIRM after the analytics choice.]</p>
+
+      <h2>Changes</h2>
+      <p>We will update this page when our practices change and show the date below.</p>
+      <p><em>Last updated: [OWNER TO CONFIRM]</em></p>
+    </div>
+  </section>
+</BaseLayout>
