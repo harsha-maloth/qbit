@@ -59,3 +59,6 @@ astro 5.18 -> 7.3.8, @astrojs/check 0.9.10, @astrojs/sitemap 3.7.4. astro check 
 
 ### 2026-10-11 13:28 UTC | feat | Add content pages: mission, philosophy, team, programs, faq; privacy/terms drafts
 Ported legacy Mission/Philosophy text, Team from data file (initials fallback, 2 real bios kept), Programs from data, FAQ from decided facts only. Privacy/Terms are noindex drafts with OWNER TO CONFIRM markers, excluded from sitemap. New PageHeader and Panel components, .prose styles, footer links for FAQ/Privacy/Terms. Redirects for old URLs deferred to .htaccess. NOT BUILT: sandbox has no npm access; owner must run npm run check && npm run build.
+
+### 2026-10-11 13:31 UTC | feat | Apply form UI, thanks page, and best-effort email in apply function
+New /apply form (FormField, honeypot, consent, Turnstile explicit render, client validation with aria-invalid + live status, 422/429/captcha/413/network handling, single-use token reset, fallback link) and /apply/thanks/ (noindex). apply function: emails skipped when unconfigured, TEAM_NOTIFY_EMAIL optional, send errors swallowed (previously a missing TEAM_NOTIFY_EMAIL returned 500 after the row was saved). Added PUBLIC_CONTACT_EMAIL. NOT RUN: sandbox has no npm/Deno/Supabase access. Owner: run check/build, redeploy function, set Turnstile test secret, test a submission.

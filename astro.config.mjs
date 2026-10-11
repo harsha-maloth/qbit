@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 // Base path stays "/" everywhere (custom domain), see AGENTS.md.
 // Stub/draft pages are noindex; keep them out of the sitemap too.
 // Remove entries from STUBS as each real page lands.
-const STUBS = ["/apply/", "/privacy/", "/terms/"]; // apply: form not built yet; privacy/terms: drafts pending review
+const STUBS = ["/apply/thanks/", "/privacy/", "/terms/"]; // thanks: noindex utility page; privacy/terms: drafts pending review
 
 export default defineConfig({
   site: process.env.SITE_URL || "http://localhost:4321",

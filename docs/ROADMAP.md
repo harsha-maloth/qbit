@@ -37,14 +37,15 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 
 ## Phase D: Pages, form, admin (days 8-18)
 - [x] Mission, Philosophy, Team, Programs pages built (unbuilt/unchecked until owner runs `npm run check && npm run build`)
-- [ ] Replace the remaining noindex stub (apply) and drop it from STUBS in astro.config.mjs
 - [ ] Create public/og-image.png (1200x630) and replace placeholder logo.svg; fix robots.txt sitemap domain
 - [x] Home, Mission, Philosophy, Team, Programs, FAQ, 404 written
 - [ ] Privacy + Terms: DRAFTS written (noindex, [OWNER TO CONFIRM] markers); owner/lawyer review, then remove from STUBS
 - [ ] OWNER: real bios + photos for 7 team members; extra FAQ answers (cost, length, timeline)
 - [ ] Optimized images with alt text
 - [ ] Old-URL 301s (.html, Phillosophy) done in public/.htaccess (Phase F), not as Astro pages
-- [ ] Apply form UI (validation, loading, Turnstile, thanks page, mailto fallback)
+- [x] Apply form UI written: validation, loading, Turnstile, error handling, thanks page, mailto/Discord fallback (UNTESTED end to end: owner runs check/build, redeploys function, sets Turnstile secret, submits a test)
+- [x] apply function: email now truly best-effort (missing RESEND/TEAM_NOTIFY no longer 500s after insert) (needs redeploy)
+- [ ] Replace Cloudflare TEST Turnstile keys with real ones before any public launch
 - [ ] Admin UI island: magic-link login, access-denied state
 - [ ] Applications table: pagination, search, filters
 - [ ] Detail panel, status change, notes, activity history; open from email link (?id=)

@@ -64,12 +64,23 @@ async function verifyTurnstile(token: string, ip: string) {
 }
 
 async function sendEmail(to: string, subject: string, html: string) {
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${env("RESEND_API_KEY")}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: env("MAIL_FROM"), to, subject, html }),
-  });
-  if (!res.ok) console.error("Resend error", res.status, await res.text());
+  // Best-effort: missing config or a mail outage must never fail a saved application.
+  const key = env("RESEND_API_KEY", false);
+  const from = env("MAIL_FROM", false);
+  if (!key || !from) {
+    console.warn("email skipped: RESEND_API_KEY or MAIL_FROM not configured");
+    return;
+  }
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ from, to, subject, html }),
+    });
+    if (!res.ok) console.error("Resend error", res.status, await res.text());
+  } catch (e) {
+    console.error("Resend request failed", e);
+  }
 }
 
 Deno.serve(async (req) => {
@@ -127,8 +138,9 @@ Deno.serve(async (req) => {
     }
 
     // Emails are best-effort: a mail outage must not lose or fail the application.
-    const siteUrl = env("SITE_URL");
-    await Promise.allSettled([
+    const siteUrl = env("SITE_URL", false);
+    const notify = env("TEAM_NOTIFY_EMAIL", false);
+    const mails = [
       sendEmail(
         fields.email,
         "We received your Collective Qubits application",
@@ -136,14 +148,17 @@ Deno.serve(async (req) => {
          <p>Thanks for applying to Collective Qubits. Our team will review your application and get back to you.</p>
          <p>Reference: ${row.id}</p>`,
       ),
-      sendEmail(
-        env("TEAM_NOTIFY_EMAIL"),
+    ];
+    if (notify) {
+      mails.push(sendEmail(
+        notify,
         `New application: ${fields.name} (${fields.affiliation})`,
         `<p><strong>${esc(fields.name)}</strong> from ${esc(fields.affiliation)} applied (${esc(fields.stage)}).</p>
          <p>Focus: ${esc(fields.focus)}</p>
          <p><a href="${siteUrl}/admin?id=${row.id}">Open in admin</a></p>`,
-      ),
-    ]);
+      ));
+    }
+    await Promise.allSettled(mails);
 
     return json({ ok: true }, 201, origin);
   } catch (e) {

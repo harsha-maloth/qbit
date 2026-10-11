@@ -11,8 +11,10 @@ interface Props {
   maxlength?: number;
   minlength?: number;
   rows?: number;
+  min?: number;
+  max?: number;
 }
-const { id, name = id, label, as = "input", type = "text", required = false, hint, autocomplete, maxlength, minlength, rows = 6 } = Astro.props;
+const { id, name = id, label, as = "input", type = "text", required = false, hint, autocomplete, maxlength, minlength, rows = 6, min, max } = Astro.props;
 const hintId = hint ? `${id}-hint` : undefined;
 const errorId = `${id}-error`;
 const describedby = [hintId, errorId].filter(Boolean).join(" ");
@@ -27,7 +29,7 @@ const describedby = [hintId, errorId].filter(Boolean).join(" ");
     <select id={id} name={name} required={required} aria-describedby={describedby}><slot /></select>
   )}
   {as === "input" && (
-    <input id={id} name={name} type={type} required={required} autocomplete={autocomplete} maxlength={maxlength} minlength={minlength} aria-describedby={describedby} />
+    <input id={id} name={name} type={type} required={required} autocomplete={autocomplete} maxlength={maxlength} minlength={minlength} min={min} max={max} aria-describedby={describedby} />
   )}
   {hint && <p class="hint" id={hintId}>{hint}</p>}
   <p class="error" id={errorId} role="alert" hidden></p>

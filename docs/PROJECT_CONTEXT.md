@@ -35,7 +35,8 @@ Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Ar
 - Backend is still UNTESTED: Phase B (staging deploy + automated RLS/function tests) comes before any UI work.
 - Written but unbuilt (Phase C): Astro scaffold, tokens, BaseLayout, Header/Footer/Button/Badge/FeatureCard/ProfileCard/CTAPanel/FormField, home + 404 + noindex stubs. First `npm install && npm run build` must be run by the owner (sandbox has no npm access); package-lock.json still to be generated and committed.
 - Written, unbuilt: Mission, Philosophy, Team, Programs, FAQ pages; Privacy and Terms drafts (noindex).
-- Not started: Apply form UI, admin UI, CI/CD, launch.
+- Written, untested end to end: Apply form (src/pages/apply, src/scripts/apply.ts) + thanks page; function email handling patched (redeploy needed). Local testing uses Cloudflare's dummy Turnstile keys (never ship them).
+- Not started: admin UI, CI/CD, launch.
 - Not provided: image assets (Collectivequbits.jpg, saatwik.png, Adavit.png, Shaliq.png, Disha Parasu.jpeg, Sudhi Sharma.png, Priyanshu.jpeg) and `scripts.js`. Add images to `public/` or `src/assets/`.
 
 ## Open questions for the owner
@@ -50,7 +51,7 @@ Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Ar
 URL: https://jmnerioqziikkqzuscpp.supabase.co (ref `jmnerioqziikkqzuscpp`). Anon key is public by design; keep it in env/GitHub secrets, never the service role key. Migration/function deploy state: unknown, run `scripts/check-anon.sh` to find out.
 
 ## Environment variables
-Frontend (public, build time): `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`
+Frontend (public, build time): `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`, `PUBLIC_CONTACT_EMAIL` (optional, mailto fallback)
 Edge Function secrets: `TURNSTILE_SECRET`, `RESEND_API_KEY`, `MAIL_FROM`, `TEAM_NOTIFY_EMAIL`, `ALLOWED_ORIGINS`, `IP_HASH_SALT`, `SITE_URL` (service role key and URL are provided by Supabase)
 GitHub secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY` (keep-alive)
 

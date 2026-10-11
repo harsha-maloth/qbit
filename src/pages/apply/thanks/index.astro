@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Button from "../../../components/Button.astro";
+import { site } from "../../../data/site";
+---
+
+<BaseLayout title="Application received" description="Thank you for applying to Collective Qubits." noindex>
+  <section class="section">
+    <div class="container section-head">
+      <h1 class="section-title">Thank you. Your application is in.</h1>
+      <p class="section-subtitle">You should receive a confirmation email shortly. If it does not arrive within a few minutes, check your spam folder. Our team will review your application and get back to you.</p>
+      <div class="hero-actions">
+        <Button href="/">Back to home</Button>
+        <Button href={site.discord} variant="ghost">Join the community</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
