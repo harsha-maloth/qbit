@@ -3,6 +3,7 @@
 All notable changes, newest first. Maintained by `scripts/log.sh`.
 
 ## [Unreleased]
+- **chore** (2026-10-11): Upgrade to Astro 7
 - **fix** (2026-10-11): Fix astro check findings
 - **chore** (2026-10-11): Add package-lock.json
 - **feat** (2026-10-11): Scaffold Astro site: tokens, layout, components, home, stubs
