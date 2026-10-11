@@ -1,0 +1,12 @@
+project_id = "collective-qubits"
+
+[auth]
+enable_signup = false              # reviewers are invited manually
+site_url = "http://localhost:4321"
+additional_redirect_urls = ["http://localhost:4321/admin"]
+# In production, set Site URL and the redirect allowlist to your domain in the dashboard:
+#   https://yourdomain.com and https://yourdomain.com/admin
+
+[functions.apply]
+verify_jwt = false                 # public form; protected by Turnstile + rate limits
+// test

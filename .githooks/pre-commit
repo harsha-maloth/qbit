@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Block commits that change code/config without updating CHANGELOG.md.
+staged="$(git diff --cached --name-only)"
+[ -z "$staged" ] && exit 0
+non_doc="$(echo "$staged" | grep -Ev '^(docs/|CHANGELOG\.md$|README\.md$|AGENTS\.md$|CLAUDE\.md$|\.claude/)' || true)"
+if [ -n "$non_doc" ] && ! echo "$staged" | grep -q '^CHANGELOG\.md$'; then
+  echo "Commit blocked: code changed but CHANGELOG.md not updated."
+  echo "Run: ./scripts/log.sh <type> \"<summary>\" \"<details>\""
+  exit 1
+fi

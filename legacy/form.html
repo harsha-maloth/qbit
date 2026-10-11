@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Apply to Collective Qubits: join a deep-tech community for founders and research teams." />
+  <title>Collective Qubits | Apply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="Collectivequbits.jpg" alt="Collective Qubits logo" />
+        <span class="brand-title">Collective <span>Qubits</span></span>
+      </a>
+      <button id="mobile-toggle" class="mobile-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Mission.html">Mission</a></li>
+          <li><a href="Phillosophy.html">Philosophy</a></li>
+          <li><a href="TEAM.html">Team</a></li>
+          <li><a href="form.html" class="active">Apply</a></li>
+          <li><a href="https://discord.gg/eg5R8wyKSZ" target="_blank" rel="noreferrer">Community</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="Mission.html">Mission</a>
+      <a href="Phillosophy.html">Philosophy</a>
+      <a href="TEAM.html">Team</a>
+      <a href="form.html">Apply</a>
+      <a href="https://discord.gg/eg5R8wyKSZ" target="_blank" rel="noreferrer">Community</a>
+    </div>
+  </header>
+  <main>
+    <section class="section" style="padding-top: 5rem;">
+      <div class="container">
+        <span class="badge">Apply</span>
+        <h1 class="section-title">Submit your application to Collective Qubits.</h1>
+        <p class="section-subtitle">We are looking for founders and teams building with purpose, technical ambition, and the potential to shape emerging systems.</p>
+        <div class="form-card" style="margin-top: 2.5rem;">
+          <form id="registration-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" required />
+              </div>
+              <div class="field">
+                <label for="affiliation">Affiliation</label>
+                <input id="affiliation" name="affiliation" type="text" placeholder="Company or institution" required />
+              </div>
+              <div class="field">
+                <label for="stage">Current stage</label>
+                <select id="stage" name="stage" required>
+                  <option value="">Select stage</option>
+                  <option>Early Prototype</option>
+                  <option>Research Phase</option>
+                  <option>Pre-launch</option>
+                </select>
+              </div>
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label for="focus">Project focus</label>
+              <input id="focus" name="focus" type="text" placeholder="Quantum systems, AI, neurotech, etc." required />
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label for="summary">What are you building?</label>
+              <textarea id="summary" name="summary" rows="5" placeholder="Describe your project and its impact" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn">Submit Application</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Collective Qubits</h3>
+        <p>We create pathways for the next generation of deep-tech teams by combining science, design, and community.</p>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="Mission.html">Mission</a></li>
+          <li><a href="Phillosophy.html">Philosophy</a></li>
+          <li><a href="TEAM.html">Team</a></li>
+          <li><a href="form.html">Apply</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Programs</h3>
+        <ul>
+          <li><a href="#">Quantum Systems</a></li>
+          <li><a href="#">Responsible AI</a></li>
+          <li><a href="#">Neurotech</a></li>
+          <li><a href="#">Systems Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Join our Discord for live updates and community discussion.</p>
+        <a href="https://discord.gg/eg5R8wyKSZ" target="_blank" rel="noreferrer">discord.gg/eg5R8wyKSZ</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Collective Qubits. All rights reserved.</p>
+      <p>Designed for pioneers of emerging technology.</p>
+    </div>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+</html>

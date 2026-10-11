@@ -1,0 +1,19 @@
+name: Changelog check
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Require CHANGELOG.md and docs/AI_LOG.md updates when code changes
+        run: |
+          files="$(git diff --name-only origin/${{ github.base_ref }}...HEAD)"
+          code="$(echo "$files" | grep -Ev '^(docs/|CHANGELOG\.md$|README\.md$|AGENTS\.md$|CLAUDE\.md$|\.claude/)' || true)"
+          if [ -n "$code" ]; then
+            echo "$files" | grep -q '^CHANGELOG\.md$' || { echo "CHANGELOG.md not updated"; exit 1; }
+            echo "$files" | grep -q '^docs/AI_LOG\.md$' || { echo "docs/AI_LOG.md not updated"; exit 1; }
+          fi
