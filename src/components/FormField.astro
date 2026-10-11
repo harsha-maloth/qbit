@@ -45,6 +45,7 @@ const describedby = [hintId, errorId].filter(Boolean).join(" ");
   }
   input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59, 84, 217, 0.2); }
   textarea { min-height: 160px; resize: vertical; }
+  input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.16); }
   .hint { font-size: 0.875rem; color: var(--text-muted); }
   .error { font-size: 0.9rem; color: var(--danger); }
   .error[hidden] { display: none; }

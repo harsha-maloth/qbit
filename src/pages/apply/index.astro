@@ -18,31 +18,64 @@ const contact = import.meta.env.PUBLIC_CONTACT_EMAIL ?? "";
   </PageHeader>
 
   <section class="section">
-    <div class="container">
+    <div class="container apply-grid">
+      <aside class="next" aria-labelledby="next-title">
+        <h2 id="next-title">What happens next</h2>
+        <ol>
+          <li>You tell us about yourself, your affiliation, your project focus, and what you are building.</li>
+          <li>You receive a confirmation email with a reference.</li>
+          <li>Our team reviews your application and gets back to you.</li>
+        </ol>
+        <p class="data-note">We store only what this form asks for. Read the <a href={withBase("/privacy/")}>Privacy Policy</a> for details.</p>
+        <p class="data-note">
+          Trouble with the form?
+          {contact ? (
+            <>Email us at <a href={`mailto:${contact}`}>{contact}</a>.</>
+          ) : (
+            <>Reach us on <a href={site.discord} target="_blank" rel="noopener noreferrer">Discord<span class="sr-only"> (opens in a new tab)</span></a>.</>
+          )}
+        </p>
+      </aside>
+
       <div class="form-card">
         <form id="apply-form" novalidate data-thanks={withBase("/apply/thanks/")} data-endpoint={endpoint} data-sitekey={siteKey} data-contact={contact}>
-          <div class="form-grid">
-            <FormField id="name" label="Full name" required autocomplete="name" minlength={2} maxlength={120} />
-            <FormField id="email" label="Email address" type="email" required autocomplete="email" maxlength={254} />
-            <FormField id="affiliation" label="Affiliation" required autocomplete="organization" minlength={2} maxlength={160} hint="Company or institution" />
-            <FormField id="stage" label="Current stage" as="select" required>
-              <option value="">Select stage</option>
-              <option>Early Prototype</option>
-              <option>Research Phase</option>
-              <option>Pre-launch</option>
-            </FormField>
-            <FormField id="focus" label="Project focus" required minlength={2} maxlength={200} hint="For example: quantum systems, responsible AI, neurotech" />
-            <FormField id="team_size" label="Team size (optional)" type="number" min={1} max={500} />
-          </div>
-          <div class="stack">
-            <FormField id="summary" label="What are you building?" as="textarea" required minlength={20} maxlength={4000} rows={6} hint="At least 20 characters. Describe the project and its impact. Please do not include confidential information." />
-            <FormField id="website" label="Website (optional)" type="url" maxlength={300} hint="Include https://" />
+          <p class="req-note">Fields marked * are required.</p>
 
-            <div class="hp" aria-hidden="true">
-              <label for="hp">Leave this field empty</label>
-              <input id="hp" name="hp" type="text" tabindex="-1" autocomplete="off" />
+          <fieldset class="group">
+            <legend>About you</legend>
+            <div class="form-grid">
+              <FormField id="name" label="Full name" required autocomplete="name" minlength={2} maxlength={120} />
+              <FormField id="email" label="Email address" type="email" required autocomplete="email" maxlength={254} />
             </div>
+            <div class="stack">
+              <FormField id="affiliation" label="Affiliation" required autocomplete="organization" minlength={2} maxlength={160} hint="Company or institution" />
+            </div>
+          </fieldset>
 
+          <fieldset class="group">
+            <legend>Your project</legend>
+            <div class="form-grid">
+              <FormField id="stage" label="Current stage" as="select" required>
+                <option value="">Select stage</option>
+                <option>Early Prototype</option>
+                <option>Research Phase</option>
+                <option>Pre-launch</option>
+              </FormField>
+              <FormField id="team_size" label="Team size (optional)" type="number" min={1} max={500} />
+            </div>
+            <div class="stack">
+              <FormField id="focus" label="Project focus" required minlength={2} maxlength={200} hint="For example: quantum systems, responsible AI, neurotech" />
+              <FormField id="summary" label="What are you building?" as="textarea" required minlength={20} maxlength={4000} rows={6} hint="At least 20 characters. Describe the project and its impact. Please do not include confidential information." />
+              <FormField id="website" label="Website (optional)" type="url" maxlength={300} hint="Include https://" />
+            </div>
+          </fieldset>
+
+          <div class="hp" aria-hidden="true">
+            <label for="hp">Leave this field empty</label>
+            <input id="hp" name="hp" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="submit-area">
             <div class="consent">
               <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error" />
               <label for="consent">I agree that Collective Qubits may store and use these details to review my application, as described in the <a href={withBase("/privacy/")}>Privacy Policy</a>.<span class="sr-only"> (required)</span></label>
@@ -50,24 +83,15 @@ const contact = import.meta.env.PUBLIC_CONTACT_EMAIL ?? "";
             <p class="error" id="consent-error" role="alert" hidden></p>
 
             <div id="turnstile-box" class="turnstile-box"></div>
-          </div>
 
-          <div class="form-actions">
-            <Button type="submit">Submit application</Button>
-            <p id="form-status" class="status" role="status" aria-live="polite"></p>
+            <div class="form-actions">
+              <Button type="submit">Submit application</Button>
+              <p id="form-status" class="status" role="status" aria-live="polite"></p>
+            </div>
           </div>
         </form>
         <noscript><p class="status">This form needs JavaScript. You can also reach us on <a href={site.discord}>Discord</a>.</p></noscript>
       </div>
-
-      <p class="fallback">
-        Trouble with the form?
-        {contact ? (
-          <>Email us at <a href={`mailto:${contact}`}>{contact}</a>.</>
-        ) : (
-          <>Reach us on <a href={site.discord} target="_blank" rel="noopener noreferrer">Discord<span class="sr-only"> (opens in a new tab)</span></a>.</>
-        )}
-      </p>
     </div>
   </section>
 </BaseLayout>
@@ -77,21 +101,38 @@ const contact = import.meta.env.PUBLIC_CONTACT_EMAIL ?? "";
 </script>
 
 <style>
+  .apply-grid { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: 3rem; align-items: start; }
+  .next { position: sticky; top: 6rem; }
+  .next h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
+  .next ol { margin: 1.25rem 0 0; padding-left: 1.25rem; display: grid; gap: 1rem; color: var(--text-muted); line-height: 1.65; }
+  .next li::marker { color: var(--accent); font-weight: 700; }
+  .data-note { margin-top: 1.5rem; color: var(--text-muted); line-height: 1.65; }
+  .data-note a, .consent a, .status a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
   .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 2rem; }
+  .req-note { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.9rem; }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { padding: 0; margin-bottom: 1.25rem; font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.01em; }
+  .group + .group { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
   .form-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stack { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
   .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+  .submit-area { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); display: grid; gap: 1.25rem; }
   .consent { display: flex; gap: 0.85rem; align-items: flex-start; }
-  .consent input { width: 1.4rem; height: 1.4rem; margin-top: 0.15rem; accent-color: var(--accent); flex: none; }
+  .consent input { width: 1.4rem; height: 1.4rem; margin-top: 0.1rem; accent-color: var(--accent); flex: none; }
   .consent label { color: var(--text-muted); line-height: 1.6; }
-  .consent a, .fallback a, .status a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
   .error { font-size: 0.9rem; color: var(--danger); margin-top: -0.5rem; }
   .error[hidden] { display: none; }
   .turnstile-box { min-height: 65px; }
-  .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+  .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
   .status { color: var(--text-muted); min-height: 1.5rem; }
-  .status.is-error { color: var(--danger); }
-  .fallback { margin-top: 1.5rem; color: var(--text-muted); }
+  .status.is-error { color: var(--danger); font-weight: 500; }
+
+  @media (max-width: 960px) {
+    .apply-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .next { position: static; }
+  }
   @media (max-width: 720px) {
     .form-card { padding: 1.25rem; }
     .form-grid { grid-template-columns: 1fr; }

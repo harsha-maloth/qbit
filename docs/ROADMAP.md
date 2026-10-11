@@ -54,7 +54,7 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [x] Step 1: tokens, fonts, global styles, header/footer/buttons/cards/forms restyled (UNBUILT: check the Actions run)
 - [x] Step 2: home page + wave hero (src/scripts/wave.ts canvas, static under reduced-motion). UNBUILT: check the Actions run
 - [x] Step 3: mission, philosophy, programs, FAQ restyled with ruled rows/statement; team uses the new cards. UNBUILT: check the Actions run
-- [ ] Step 4: apply form + thanks polish
+- [x] Step 4: apply form (two columns, grouped fieldsets, what-happens-next aside, invalid-field styling, light Turnstile) + thanks page. UNBUILT: check Actions, then submit a test application
 - [ ] Step 5: contrast, keyboard, 360px, reduced-motion pass
 - [ ] Regenerate package-lock.json (commit the one CI produces) and switch deploy.yml back to `npm ci`
 

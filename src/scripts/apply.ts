@@ -88,7 +88,7 @@ function init(form: HTMLFormElement) {
     .then(() => {
       widgetId = window.turnstile!.render(box, {
         sitekey: siteKey,
-        theme: "dark",
+        theme: "light",
         callback: (t: string) => { token = t; },
         "expired-callback": () => { token = ""; },
         "error-callback": () => { token = ""; },

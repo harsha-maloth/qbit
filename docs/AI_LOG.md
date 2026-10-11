@@ -77,3 +77,6 @@ New home layout: canvas wave hero (src/scripts/wave.ts), ruled rows for offers, 
 
 ### 2026-10-11 14:03 UTC | feat | Redesign step 3: inner pages
 Mission, Philosophy, Programs rebuilt with shared ruled rows and statement blocks; FAQ accordion restyled; rows CSS moved to global.css. Copy unchanged. NOT BUILT: check the Actions run.
+
+### 2026-10-11 14:04 UTC | feat | Redesign step 4: apply form and thanks page
+Grouped fieldsets, what-happens-next aside (facts from FAQ only), invalid-field styling, light Turnstile theme, restyled thanks page. IDs/data attributes used by apply.ts unchanged. NOT BUILT/NOT RUN.
