@@ -51,6 +51,14 @@ Legend: [x] done, [ ] todo. Update after every change.
 - [ ] backup.yml (encrypted weekly dump)
 - [ ] UptimeRobot monitors, Auth custom SMTP, DNS cutover
 
+## Phase 5b: cPanel production
+- [ ] Confirm cPanel plan: SSL (AutoSSL), SFTP/SSH access, Apache with .htaccess enabled
+- [ ] public/.htaccess (HTTPS, clean URLs, redirects, security headers, caching, 404)
+- [ ] Deploy workflow (SFTP/FTPS action, secrets in GitHub) or .cpanel.yml
+- [ ] Staging subdomain test on cPanel, then production cutover
+- [ ] Update Supabase Auth URLs, ALLOWED_ORIGINS, SITE_URL, Turnstile hostname
+- [ ] Post-cutover checks: headers, redirects, form, magic link, Lighthouse
+
 ## Phase 6: Operations
 - [ ] Runbook (add team member, change form field, roll back)
 - [ ] Dependabot, quarterly secret rotation, privacy retention routine

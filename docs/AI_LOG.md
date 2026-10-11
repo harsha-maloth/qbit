@@ -20,3 +20,6 @@ Added AGENTS.md, log.sh, pre-commit hook, log-check workflow, docs, legacy copy,
 
 ### 2026-10-11 12:47 UTC | chore | Make setup portable and store exec bits
 README now uses 'bash scripts/setup.sh'; git index marks scripts and hook executable. Hook activates only after setup.sh so a fresh clone is never blocked by a non-executable hook.
+
+### 2026-10-11 12:47 UTC | decision | Final hosting target is cPanel
+Frontend ships as static files to cPanel (.htaccess for headers/redirects); GitHub Pages is dev/staging only; backend stays on Supabase pending owner confirmation. Updated DECISIONS, PROJECT_CONTEXT (cPanel go-live notes), ROADMAP (Phase 5b), AGENTS.md.

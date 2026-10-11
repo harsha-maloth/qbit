@@ -12,7 +12,7 @@ Replace the original 6-file static site (`legacy/`) with an industry-grade, depl
 Targets: Lighthouse 95+, WCAG 2.2 AA, reliable application storage with spam protection, automatic deploys from Git, no duplicated header/footer, content in data files.
 
 ## Stack (decided)
-- Frontend: **Astro + TypeScript**, static output, **GitHub Pages**, custom domain (base path `/`)
+- Frontend: **Astro + TypeScript**, static output. **Dev/staging: GitHub Pages. Final production: cPanel** (upload `dist/` to `public_html`, `.htaccess` for headers/redirects). Base path `/`.
 - Backend: **Supabase** (Postgres, RLS, Auth, Edge Functions). **Free tier with keep-alive.**
 - Form: browser -> Edge Function `apply` -> Postgres + Resend emails
 - Spam: Cloudflare Turnstile + honeypot + rate limits (3/hour/IP, 1/day/email)
@@ -36,6 +36,7 @@ Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Ar
 - Not provided: image assets (Collectivequbits.jpg, saatwik.png, Adavit.png, Shaliq.png, Disha Parasu.jpeg, Sudhi Sharma.png, Priyanshu.jpeg) and `scripts.js`. Add images to `public/` or `src/assets/`.
 
 ## Open questions for the owner
+0. Should the backend also move to cPanel (PHP/MySQL) at the end, or stay on Supabase? Default assumption: stays on Supabase.
 1. Domain name and GitHub org/repo name?
 2. Logo files (SVG preferred) and team photos?
 3. Real bios for the 6 placeholder team members?
@@ -46,3 +47,11 @@ Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Ar
 Frontend (public, build time): `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`
 Edge Function secrets: `TURNSTILE_SECRET`, `RESEND_API_KEY`, `MAIL_FROM`, `TEAM_NOTIFY_EMAIL`, `ALLOWED_ORIGINS`, `IP_HASH_SALT`, `SITE_URL` (service role key and URL are provided by Supabase)
 GitHub secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY` (keep-alive)
+
+## cPanel go-live notes
+- Build output is plain static files: no Node needed on the server.
+- Ship `public/.htaccess` with: HTTPS redirect, clean URLs, 301s from old `.html` and `Phillosophy` URLs, security headers (CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy), caching and gzip/brotli, custom 404.
+- Deploy: GitHub Action over SFTP/FTPS to cPanel, or cPanel Git Version Control with `.cpanel.yml`. Never commit cPanel credentials.
+- At cutover update: Supabase Auth Site URL + redirect allowlist (`https://domain/admin`), function secrets `ALLOWED_ORIGINS` and `SITE_URL`, Turnstile allowed hostname, Resend domain.
+- Keep the Supabase keep-alive running (free tier still pauses when idle).
+- Test on a staging subdomain on cPanel before pointing the main domain.
