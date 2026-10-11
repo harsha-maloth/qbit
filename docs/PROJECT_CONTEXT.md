@@ -33,7 +33,8 @@ Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Ar
 ## Current state
 - Done: legacy audit, plan, Supabase migration, `apply` Edge Function, config (stray invalid line removed), keep-alive workflow, repo + logging system, phased delivery plan in ROADMAP.
 - Backend is still UNTESTED: Phase B (staging deploy + automated RLS/function tests) comes before any UI work.
-- Not started: Astro project, design system, pages, form UI, admin UI, CI/CD, launch.
+- Written but unbuilt (Phase C): Astro scaffold, tokens, BaseLayout, Header/Footer/Button/Badge/FeatureCard/ProfileCard/CTAPanel/FormField, home + 404 + noindex stubs. First `npm install && npm run build` must be run by the owner (sandbox has no npm access); package-lock.json still to be generated and committed.
+- Not started: real pages, form UI, admin UI, CI/CD, launch.
 - Not provided: image assets (Collectivequbits.jpg, saatwik.png, Adavit.png, Shaliq.png, Disha Parasu.jpeg, Sudhi Sharma.png, Priyanshu.jpeg) and `scripts.js`. Add images to `public/` or `src/assets/`.
 
 ## Open questions for the owner

@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Badge from "../components/Badge.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import ProfileCard from "../components/ProfileCard.astro";
+import CTAPanel from "../components/CTAPanel.astro";
+import { site } from "../data/site";
+import { team } from "../data/team";
+
+const preview = team.slice(0, 3);
+const highlights = [
+  { title: "Startup Labs", text: "Guided cohorts for early-stage teams building hardware, optics, quantum systems, and responsible AI." },
+  { title: "Research Network", text: "Access cross-disciplinary mentors, domain experts, and collaborators in tech, design, and policy." },
+  { title: "Impact Focus", text: "We prioritize work that advances sustainability, equity, and real-world human value." },
+  { title: "Global Community", text: "Join a growing ecosystem of scientists, founders, engineers, and artists solving hard problems together." },
+];
+---
+
+<BaseLayout title={site.name} description={site.description}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <Badge>Deep tech incubator for bold teams</Badge>
+        <h1>Collective Qubits is where visionary minds, hybrid systems, and future-ready ideas converge.</h1>
+        <p>We support founders, researchers, and creative technologists through mentorship, network access, and launch guidance. Our mission is to turn complex science into compelling work that serves people and planet.</p>
+        <div class="hero-actions">
+          <Button href="/mission/">Our Mission</Button>
+          <Button href="/apply/" variant="ghost">Apply Now</Button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-panel">
+          {highlights.map((h) => (
+            <div class="info-card">
+              <h2>{h.title}</h2>
+              <p>{h.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="create">
+    <div class="container">
+      <div class="section-head">
+        <Badge>What we create</Badge>
+        <h2 class="section-title" id="create">A launchpad for multidisciplinary innovation</h2>
+        <p class="section-subtitle">From quantum-enabled sensing to AI ethics platforms, our programs help teams accelerate with clarity, credibility, and momentum.</p>
+      </div>
+      <div class="grid-3 mt-lg">
+        <FeatureCard label="Fast-track support" title="Capital-ready storytelling">We help founders translate complex research into persuasive narratives for investors, partners, and customers.</FeatureCard>
+        <FeatureCard label="Deep domain access" title="Labs, mentors, and collaborators">Tap into technical experts from quantum computing, photonics, neurotech, synthetic biology, and beyond.</FeatureCard>
+        <FeatureCard label="Growth infrastructure" title="Operational support">From legal frameworks to product strategy, our community supports the full lifecycle of ambitious ventures.</FeatureCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="fields">
+    <div class="container">
+      <div class="section-head">
+        <Badge>Fields we focus on</Badge>
+        <h2 class="section-title" id="fields">Complex systems need collective intelligence</h2>
+        <p class="section-subtitle">Our work lives at the intersection of science, technology, and society. We support teams building in these areas.</p>
+      </div>
+      <div class="grid-3 mt-lg">
+        <FeatureCard label="Quantum systems" title="Quantum sensing, control, and optimization">Practical applications that bridge research-grade physics with near-term product value.</FeatureCard>
+        <FeatureCard label="Applied AI" title="Responsible intelligence">Human-centered AI solutions built for trust, fairness, and explainability.</FeatureCard>
+        <FeatureCard label="Emergent interfaces" title="Neurotech, photonics, and immersive systems">New modalities that deepen human-machine collaboration and design experiences that feel effortless.</FeatureCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="container">
+      <div class="section-head">
+        <Badge>Why Collective Qubits</Badge>
+        <h2 class="section-title" id="why">We build teams, not just products</h2>
+        <p class="section-subtitle">Our community supports founders through shared learning, deliberate experimentation, and a culture that values bold thinking over incremental change.</p>
+      </div>
+      <div class="grid-3 mt-lg">
+        <FeatureCard title="Peer community">Connect with ambitious founders who are building at the edge of science and design.</FeatureCard>
+        <FeatureCard title="Curated mentorship">Work with advisors who have launched deep-tech ventures, research labs, and social impact efforts.</FeatureCard>
+        <FeatureCard title="Launch support">Get help with product-market fit, pitch refinement, and early go-to-market strategy.</FeatureCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="team">
+    <div class="container">
+      <div class="section-head">
+        <Badge>Team preview</Badge>
+        <h2 class="section-title" id="team">A network of builders, thinkers, and operators</h2>
+      </div>
+      <div class="grid-3 mt-lg">
+        {preview.map((m) => <ProfileCard name={m.name} role={m.role} photo={m.photo} bio={m.bio} />)}
+      </div>
+      <div class="hero-actions">
+        <Button href="/team/" variant="ghost">Meet the whole team</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <CTAPanel badge="Ready to join?" title="Apply now and help shape the next wave of technology and systems thinking.">
+      We are looking for founders, researchers, and teams who are building with ambition, clarity, and purpose. Tell us the problem, why you're the right team, and what you need to build it.
+      <Button slot="actions" href="/apply/">Start Your Application</Button>
+    </CTAPanel>
+  </section>
+</BaseLayout>

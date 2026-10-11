@@ -1,0 +1,53 @@
+---
+import { nav, site } from "../data/site";
+import { programs } from "../data/programs";
+
+const year = new Date().getFullYear();
+const quick = nav.filter((n) => !n.external && n.href !== "/");
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2>{site.name}</h2>
+      <p>We create pathways for the next generation of deep-tech teams by combining science, design, and community.</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2>Quick links</h2>
+      <ul>
+        {quick.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2>Programs</h2>
+      <ul>
+        {programs.map((p) => <li>{p.name}</li>)}
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <p>Join our Discord to connect with the community.</p>
+      <a class="discord" href={site.discord} target="_blank" rel="noopener noreferrer">
+        discord.gg/eg5R8wyKSZ<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {year} {site.name}. All rights reserved.</p>
+    <p>Built for visionary founders.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding: 3rem 0 2rem; background: #07090b; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+  .footer-grid { display: grid; gap: 2rem; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  h2 { margin: 0 0 1rem; font-size: 1rem; }
+  p, li, .discord { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  a:hover { color: var(--accent); }
+  .footer-bottom {
+    margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.9rem;
+  }
+  @media (max-width: 960px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>

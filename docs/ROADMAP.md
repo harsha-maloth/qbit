@@ -27,6 +27,7 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [ ] Review: record rate-limit hit only after earlier checks pass
 
 ## Phase C: Frontend foundation (days 4-8)
+- [x] Phase C source written (UNBUILT: sandbox cannot reach npm; owner must run `npm install && npm run check && npm run build`, then tick the items below)
 - [ ] Astro project scaffold (TypeScript)
 - [ ] Tokens from legacy/styles.css as CSS variables
 - [ ] Self-host Inter
@@ -35,6 +36,8 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [ ] Team/program data in content files
 
 ## Phase D: Pages, form, admin (days 8-18)
+- [ ] Replace temporary noindex stubs (mission, philosophy, team, programs, apply) and drop them from STUBS in astro.config.mjs
+- [ ] Create public/og-image.png (1200x630) and replace placeholder logo.svg; fix robots.txt sitemap domain
 - [ ] Home, Mission, Philosophy, Team, Programs, FAQ, Privacy, Terms, 404
 - [ ] Optimized images with alt text; old-URL redirect stubs (.html and Phillosophy)
 - [ ] Apply form UI (validation, loading, Turnstile, thanks page, mailto fallback)

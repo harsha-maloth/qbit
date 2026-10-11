@@ -1,0 +1,92 @@
+---
+import { nav, site } from "../data/site";
+
+interface Props {
+  currentPath: string;
+}
+const { currentPath } = Astro.props;
+const isActive = (href: string) => (href === "/" ? currentPath === "/" : currentPath.startsWith(href));
+---
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="/">
+      <img src="/logo.svg" alt="" width="48" height="48" />
+      <span class="brand-title">Collective <span>Qubits</span></span>
+      <span class="sr-only">home</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary" data-open="false">
+      <ul class="nav-links">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={!item.external && isActive(item.href) ? "page" : undefined}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+            >
+              {item.label}
+              {item.external && <span class="sr-only"> (opens in a new tab)</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import "../scripts/menu";
+</script>
+
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 999;
+    background: rgba(7, 8, 10, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+  }
+  .navbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; }
+  .brand { display: inline-flex; align-items: center; gap: 0.85rem; }
+  .brand img { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); }
+  .brand-title { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+  .brand-title span { color: var(--accent); }
+
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+  .nav-links a { position: relative; display: inline-block; color: var(--text-muted); letter-spacing: 0.08em; font-size: 0.85rem; padding: 0.25rem 0; transition: color 0.2s ease; }
+  .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--accent); }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px;
+    border-radius: 999px; background: var(--accent); transition: width 0.25s ease;
+  }
+  .nav-links a:hover::after, .nav-links a[aria-current="page"]::after { width: 100%; }
+
+  .menu-toggle {
+    display: none; align-items: center; justify-content: center;
+    width: 46px; height: 46px; border-radius: 16px; cursor: pointer;
+    background: transparent; border: 1px solid rgba(255, 255, 255, 0.18); color: var(--text);
+  }
+
+  @media (max-width: 720px) {
+    /* Without JS the links stay visible and wrap; with JS they collapse into a panel. */
+    .navbar { flex-wrap: wrap; }
+    :global(.js) .menu-toggle { display: inline-flex; }
+    :global(.js) .primary-nav {
+      display: none; position: absolute; top: 100%; left: 1rem; right: 1rem;
+      padding: 1rem 1.5rem; background: rgba(7, 8, 10, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 26px; box-shadow: var(--shadow);
+    }
+    :global(.js) .primary-nav[data-open="true"] { display: block; }
+    :global(.js) .nav-links { flex-direction: column; align-items: stretch; gap: 0; }
+    :global(.js) .nav-links a { display: block; padding: 0.9rem 0; font-size: 1rem; color: var(--text); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    :global(.js) .nav-links li:last-child a { border-bottom: none; }
+    :global(.js) .nav-links a::after { display: none; }
+  }
+</style>

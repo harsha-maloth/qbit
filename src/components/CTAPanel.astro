@@ -1,0 +1,27 @@
+---
+import Badge from "./Badge.astro";
+interface Props {
+  badge?: string;
+  title: string;
+}
+const { badge, title } = Astro.props;
+---
+
+<div class="container cta-panel">
+  {badge && <Badge>{badge}</Badge>}
+  <h2>{title}</h2>
+  <p><slot /></p>
+  <div class="actions"><slot name="actions" /></div>
+</div>
+
+<style>
+  .cta-panel {
+    padding: 3rem; text-align: center; border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(255, 184, 0, 0.14), rgba(120, 94, 0, 0.06));
+    border: 1px solid var(--line);
+  }
+  h2 { margin: 1rem 0 0; font-size: clamp(1.75rem, 3vw, 3rem); letter-spacing: -0.02em; }
+  p { max-width: 660px; margin: 1rem auto 0; color: var(--text-muted); line-height: 1.8; }
+  .actions { display: flex; justify-content: center; margin-top: 2rem; }
+  @media (max-width: 720px) { .cta-panel { padding: 2rem 1.25rem; } }
+</style>

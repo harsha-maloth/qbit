@@ -1,0 +1,21 @@
+/* Design tokens ported from legacy/styles.css. Change values here only. */
+:root {
+  --bg: #08090b;
+  --bg-soft: #111417;
+  --surface: #14191f;
+  --surface-soft: #1f252d;
+  --border: rgba(255, 185, 0, 0.18);
+  --border-strong: rgba(255, 185, 0, 0.35);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f8f4eb;
+  --text-muted: #b3aa98;
+  --text-subtle: #8c8777;
+  --accent: #ffb800;
+  --accent-dark: #f59f00;
+  --accent-soft: #432d0a;
+  --on-accent: #07090b;
+  --shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  --radius: 22px;
+  --font: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --container: 1120px;
+}

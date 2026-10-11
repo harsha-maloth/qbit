@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout title="Page not found" description="The page you were looking for does not exist." noindex>
+  <section class="section">
+    <div class="container section-head">
+      <h1 class="section-title">Page not found</h1>
+      <p class="section-subtitle">That page does not exist or has moved. Try the home page or one of the links in the menu.</p>
+      <Button href="/">Back to home</Button>
+    </div>
+  </section>
+</BaseLayout>

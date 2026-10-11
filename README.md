@@ -4,7 +4,7 @@ Website for Collective Qubits, a deep-tech incubator for founders and research t
 
 - **Frontend:** Astro (static) on GitHub Pages, custom domain
 - **Backend:** Supabase (Postgres + RLS + Auth magic link + Edge Functions)
-- **Status:** backend written, frontend not yet started. See `docs/ROADMAP.md`.
+- **Status:** staging backend deployed and verified; Astro scaffold written (first local build pending). See `docs/ROADMAP.md`.
 
 ## Start here (humans and AI agents)
 | File | Purpose |
@@ -26,7 +26,16 @@ docs/        context, plan, decisions, roadmap, logs
 scripts/     setup.sh, log.sh
 .githooks/   pre-commit check that enforces changelog updates
 .github/     keepalive.yml, log-check.yml
-src/         (to be created) Astro site
+src/         Astro site (layouts, components, data, pages, styles)
+public/      static assets (logo placeholder, favicon, robots.txt, js-flag.js)
+```
+
+## Run the site locally
+```bash
+npm install
+cp .env.example .env   # fill PUBLIC_* values
+npm run dev            # http://localhost:4321
+npm run check && npm run build
 ```
 
 ## One-time setup

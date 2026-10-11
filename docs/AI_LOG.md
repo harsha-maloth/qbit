@@ -41,3 +41,6 @@ scripts/check-anon.sh covers ping, table reads, direct insert, admin RPCs, signu
 
 ### 2026-10-11 13:09 UTC | chore | Staging backend deployed and verified
 Migration applied via SQL Editor (CLI db push blocked by network on DB ports). apply function deployed with ALLOWED_ORIGINS/SITE_URL/IP_HASH_SALT secrets. scripts/check-anon.sh: 16/16 pass. Still pending: Turnstile + Resend secrets, first admin invite, real submission test, migration repair, add staging origin.
+
+### 2026-10-11 13:15 UTC | feat | Scaffold Astro site: tokens, layout, components, home, stubs
+Phase C source: package.json (astro ^5, sitemap, fontsource inter, check), astro.config (static, base /, inlineStylesheets never, sitemap), design tokens ported from legacy CSS, BaseLayout (SEO, canonical, OG, prod-only meta CSP, skip link), accessible Header with JS-optional mobile menu, Footer, Button, Badge, FeatureCard, ProfileCard (initials fallback), CTAPanel, FormField, data files (site, programs, team), home page ported, 404, noindex stubs for mission/philosophy/team/programs/apply. NOT BUILT: sandbox cannot reach npm (403); owner must run npm install && npm run check && npm run build and report errors. Placeholders: logo.svg, og-image.png missing, robots.txt domain.
