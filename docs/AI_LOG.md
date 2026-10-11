@@ -80,3 +80,6 @@ Mission, Philosophy, Programs rebuilt with shared ruled rows and statement block
 
 ### 2026-10-11 14:04 UTC | feat | Redesign step 4: apply form and thanks page
 Grouped fieldsets, what-happens-next aside (facts from FAQ only), invalid-field styling, light Turnstile theme, restyled thanks page. IDs/data attributes used by apply.ts unchanged. NOT BUILT/NOT RUN.
+
+### 2026-10-11 14:05 UTC | feat | Redesign step 5: accessibility and polish pass
+Computed contrast for all token pairs (all pass AA), menu collapses at 960px, white focus rings on dark bands, color-scheme light, selection colour, team page heading order, docs/A11Y_CHECKLIST.md. NOT BUILT.

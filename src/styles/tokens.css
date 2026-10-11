@@ -1,5 +1,6 @@
 /* Design tokens: palette C "indigo and steel" (corporate). Change values here only. */
 :root {
+  color-scheme: light;
   /* surfaces */
   --bg: #F4F5FA;
   --bg-soft: #EEF0F8;

@@ -20,6 +20,7 @@ const { badge, title } = Astro.props;
   h2 { margin: 0.75rem 0 0; max-width: 24ch; font-size: clamp(1.75rem, 3vw, 2.75rem); letter-spacing: -0.03em; color: #fff; }
   p { max-width: 62ch; margin: 1rem 0 0; color: var(--on-ink-muted); line-height: 1.7; }
   .actions { display: flex; justify-content: flex-start; margin-top: 2rem; }
+  .cta-panel :global(a:focus-visible) { outline-color: #fff; }
   .actions :global(.btn.primary) { background: #fff; color: var(--ink); }
   .actions :global(.btn.primary:hover) { background: var(--accent-soft); }
   @media (max-width: 720px) { .cta-panel { padding: 2rem 1.25rem; } }

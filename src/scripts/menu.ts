@@ -24,7 +24,7 @@ if (toggle && nav) {
 
   nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
 
-  window.matchMedia("(min-width: 721px)").addEventListener("change", (m) => {
+  window.matchMedia("(min-width: 961px)").addEventListener("change", (m) => {
     if (m.matches) setOpen(false);
   });
 }

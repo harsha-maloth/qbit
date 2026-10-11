@@ -11,6 +11,7 @@ import { team } from "../../data/team";
   </PageHeader>
 
   <section class="section">
+    <h2 class="sr-only">Team members</h2>
     <div class="container grid-3">
       {team.map((m) => <ProfileCard name={m.name} role={m.role} photo={m.photo} bio={m.bio} />)}
     </div>
