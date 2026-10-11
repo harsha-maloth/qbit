@@ -21,8 +21,8 @@ Targets: Lighthouse 95+, WCAG 2.2 AA, reliable application storage with spam pro
 - Analytics: Plausible, Umami, or GoatCounter (cookie-free)
 - Monitoring: UptimeRobot hitting `rpc/ping` (also a second keep-alive)
 
-## Brand / design tokens (from legacy/styles.css)
-bg `#08090b`, surface `#14191f`, text `#f8f4eb`, muted `#b3aa98`, accent gold `#ffb800` (dark `#f59f00`), radius 22px, font Inter (self-host), pill buttons, uppercase letter-spaced labels. Breakpoints 960px and 720px.
+## Brand / design tokens (redesign, palette C "indigo and steel")
+ink `#1E2761`, accent `#3B54D9` (hover `#2F44B8`), steel/muted `#5E6A85`, paper `#F4F5FA`, line `#DADDEB`, white surfaces. Light page, dark ink band for footer and call to action. Radius 6/8/12px, square-ish buttons, sentence case (no all-caps labels). Fonts: Bricolage Grotesque (headings), Instrument Sans (body), self-hosted via fontsource. Legacy gold on dark is retired. Redesign steps: 1 tokens+shell (done), 2 home + wave hero, 3 inner pages, 4 apply form polish, 5 a11y/contrast pass.
 
 ## Pages
 Home, Mission, Philosophy (legacy typo "Phillosophy" fixed), Team, Programs (new), Apply, Apply/Thanks, FAQ (new), Privacy, Terms, 404, Admin. Old `.html` URLs get redirect stubs.

@@ -36,16 +36,16 @@ const describedby = [hintId, errorId].filter(Boolean).join(" ");
 </div>
 
 <style>
-  .field { display: grid; gap: 0.55rem; }
-  label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+  .field { display: grid; gap: 0.5rem; }
+  label { font-size: 0.95rem; font-weight: 600; color: var(--text); }
   input, select, textarea {
-    width: 100%; padding: 1rem; border-radius: 18px; color: var(--text);
-    border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.04);
+    width: 100%; padding: 0.85rem 1rem; border-radius: var(--radius); color: var(--text);
+    border: 1px solid var(--border-input); background: var(--surface);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255, 184, 0, 0.18); }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59, 84, 217, 0.2); }
   textarea { min-height: 160px; resize: vertical; }
-  .hint { font-size: 0.85rem; color: var(--text-subtle); }
-  .error { font-size: 0.9rem; color: #ffb4a8; }
+  .hint { font-size: 0.875rem; color: var(--text-muted); }
+  .error { font-size: 0.9rem; color: var(--danger); }
   .error[hidden] { display: none; }
 </style>

@@ -1,21 +1,38 @@
-/* Design tokens ported from legacy/styles.css. Change values here only. */
+/* Design tokens: palette C "indigo and steel" (corporate). Change values here only. */
 :root {
-  --bg: #08090b;
-  --bg-soft: #111417;
-  --surface: #14191f;
-  --surface-soft: #1f252d;
-  --border: rgba(255, 185, 0, 0.18);
-  --border-strong: rgba(255, 185, 0, 0.35);
-  --line: rgba(255, 255, 255, 0.08);
-  --text: #f8f4eb;
-  --text-muted: #b3aa98;
-  --text-subtle: #8c8777;
-  --accent: #ffb800;
-  --accent-dark: #f59f00;
-  --accent-soft: #432d0a;
-  --on-accent: #07090b;
-  --shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-  --radius: 22px;
-  --font: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* surfaces */
+  --bg: #F4F5FA;
+  --bg-soft: #EEF0F8;
+  --surface: #FFFFFF;
+  --surface-soft: #E9ECF7;
+  --tint: #E9ECF7;
+  /* lines */
+  --line: #DADDEB;
+  --border: #DADDEB;
+  --border-strong: #B9BFD6;
+  --border-input: #7F8AA8;
+  /* text */
+  --text: #1E2761;
+  --text-muted: #5E6A85;
+  --text-subtle: #5E6A85;
+  /* accent */
+  --accent: #3B54D9;
+  --accent-dark: #2F44B8;
+  --accent-soft: #E4E8FA;
+  --on-accent: #FFFFFF;
+  /* dark band (footer, call to action) */
+  --ink: #1E2761;
+  --on-ink: #F4F5FA;
+  --on-ink-muted: #C5CCE6;
+  /* status */
+  --danger: #B3261E;
+  /* shape */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 2px rgba(30, 39, 97, 0.08);
+  /* type */
+  --font: "Instrument Sans Variable", "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", var(--font);
   --container: 1120px;
 }

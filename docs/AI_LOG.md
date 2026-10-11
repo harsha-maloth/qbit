@@ -68,3 +68,6 @@ No local npm. GitHub Actions runs npm ci, astro check, build and deploys to Page
 
 ### 2026-10-11 13:41 UTC | feat | Configurable base path for staging (withBase helper)
 BASE_PATH env drives Astro base; src/lib/url.ts withBase applied to Header, Footer, Button, BaseLayout, apply page and apply.ts redirect. deploy.yml passes vars.BASE_PATH. Not built (no npm here): check the Actions run.
+
+### 2026-10-11 14:00 UTC | feat | Redesign step 1: palette C tokens, fonts, shell restyle
+Light corporate theme: indigo/azure/steel on paper. New fonts (Bricolage Grotesque, Instrument Sans). Restyled Header, Footer, Button, Badge, cards, FormField, CTAPanel, apply page; new logo/favicon. deploy.yml uses npm install (lockfile stale). NOT BUILT: check Actions run.

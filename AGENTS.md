@@ -37,7 +37,7 @@ Append a "Handoff" block to `docs/AI_LOG.md`: what is done, what is half-done, e
 - Free-tier Supabase pauses when idle: do not remove `keepalive.yml`.
 
 ## 5. Style
-- TypeScript, Astro components, CSS variables from the design tokens (gold `#ffb800` on dark `#08090b`, Inter font, self-hosted).
+- TypeScript, Astro components, CSS variables from `src/styles/tokens.css` (palette C: indigo `#1E2761`, azure `#3B54D9`, steel `#5E6A85`, paper `#F4F5FA`; Bricolage Grotesque headings + Instrument Sans body, self-hosted). No hardcoded colors in components.
 - No duplicated header/footer markup. Team and program data live in content files, not HTML.
 - Prefer small, reviewable commits.
 

@@ -24,13 +24,13 @@ const finalHref = href ? withBase(href) : undefined;
 <style>
   .btn {
     display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
-    border: 1px solid transparent; border-radius: 999px; padding: 0.95rem 1.75rem;
-    font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.9rem;
-    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent; border-radius: var(--radius-sm); padding: 0.8rem 1.4rem;
+    font-weight: 600; font-size: 0.95rem; line-height: 1.2;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
   .primary { background: var(--accent); color: var(--on-accent); }
-  .primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-  .ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
+  .primary:hover { background: var(--accent-dark); }
+  .ghost { background: transparent; color: var(--text); border-color: var(--text); }
   .ghost:hover { border-color: var(--accent); color: var(--accent); }
-  .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 </style>

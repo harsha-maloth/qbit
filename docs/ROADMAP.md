@@ -50,6 +50,14 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [ ] Applications table: pagination, search, filters
 - [ ] Detail panel, status change, notes, activity history; open from email link (?id=)
 
+## Redesign (palette C)
+- [x] Step 1: tokens, fonts, global styles, header/footer/buttons/cards/forms restyled (UNBUILT: check the Actions run)
+- [ ] Step 2: home page + wave hero (external canvas script, reduced-motion fallback)
+- [ ] Step 3: inner pages (mission, philosophy, team, programs, FAQ) editorial layouts
+- [ ] Step 4: apply form + thanks polish
+- [ ] Step 5: contrast, keyboard, 360px, reduced-motion pass
+- [ ] Regenerate package-lock.json (commit the one CI produces) and switch deploy.yml back to `npm ci`
+
 ## Phase E: Quality gates in CI (days 14-20)
 - [x] keepalive.yml
 - [x] log-check.yml
