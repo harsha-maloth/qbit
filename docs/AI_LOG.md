@@ -26,3 +26,12 @@ Frontend ships as static files to cPanel (.htaccess for headers/redirects); GitH
 
 ### 2026-10-11 12:54 UTC | docs | Phased deployment-readiness plan and config.toml fix
 Rewrote ROADMAP into phases A-H (~4 weeks) with definition of ready to ship; backend verification (B) precedes UI. Fixed invalid '// test' line in supabase/config.toml (TOML parse error; verified with tomllib). Updated PROJECT_CONTEXT state. Not done: Phase A needs owner inputs (domain, repo name, assets, bios, analytics) and account setup.
+
+### Handoff (end of session 2)
+- Done: reviewed all docs and code; fixed invalid config.toml; ROADMAP rewritten as phases A-H with definition of ready to ship.
+- Half-done: nothing.
+- Exact next step: Phase A. Get owner inputs, create GitHub repo, create Supabase staging project, then Phase B (deploy migration + function to staging, write RLS and function tests).
+- Open questions for owner: domain; GitHub org/repo name; logo + photos; real bios (6 members); analytics tool; confirm backend stays on Supabase.
+
+### 2026-10-11 12:54 UTC | docs | Session 2 handoff
+Handoff block appended.
