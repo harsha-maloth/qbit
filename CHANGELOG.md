@@ -3,6 +3,7 @@
 All notable changes, newest first. Maintained by `scripts/log.sh`.
 
 ## [Unreleased]
+- **chore** (2026-10-11): Add package-lock.json
 - **feat** (2026-10-11): Scaffold Astro site: tokens, layout, components, home, stubs
 - **chore** (2026-10-11): Staging backend deployed and verified
 - **feat** (2026-10-11): Add anon-key verification script and record staging project

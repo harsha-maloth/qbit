@@ -44,3 +44,6 @@ Migration applied via SQL Editor (CLI db push blocked by network on DB ports). a
 
 ### 2026-10-11 13:15 UTC | feat | Scaffold Astro site: tokens, layout, components, home, stubs
 Phase C source: package.json (astro ^5, sitemap, fontsource inter, check), astro.config (static, base /, inlineStylesheets never, sitemap), design tokens ported from legacy CSS, BaseLayout (SEO, canonical, OG, prod-only meta CSP, skip link), accessible Header with JS-optional mobile menu, Footer, Button, Badge, FeatureCard, ProfileCard (initials fallback), CTAPanel, FormField, data files (site, programs, team), home page ported, 404, noindex stubs for mission/philosophy/team/programs/apply. NOT BUILT: sandbox cannot reach npm (403); owner must run npm install && npm run check && npm run build and report errors. Placeholders: logo.svg, og-image.png missing, robots.txt domain.
+
+### 2026-10-11 13:17 UTC | chore | Add package-lock.json
+First local npm install and successful build.
