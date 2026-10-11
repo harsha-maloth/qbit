@@ -1,64 +1,80 @@
 # Roadmap
 
-Legend: [x] done, [ ] todo. Update after every change.
+Legend: [x] done, [ ] todo. Update after every change. Target: ~4 weeks, one developer.
+Order matters: prove the backend (B) before building UI on it. A and B need no frontend.
 
-## Phase 0: Setup
+## Phase A: Unblock (days 1-2)
 - [x] Audit legacy site (docs/LEGACY_AUDIT.md)
 - [x] Plan written (docs/PLAN.md)
 - [x] Repo with context, decisions, logs, agent rules
+- [x] Fix invalid `// test` line in supabase/config.toml (was breaking TOML parse)
+- [ ] OWNER: domain, GitHub repo name, logo (SVG), team photos, real bios, analytics choice, confirm backend stays on Supabase
 - [ ] Create GitHub repo, push, enable Pages (Actions source), branch protection
-- [ ] Domain + DNS + CNAME file
 - [ ] Supabase staging + prod projects
 - [ ] Resend domain (SPF/DKIM), Turnstile site
+- [ ] Check cPanel plan: AutoSSL, SFTP/SSH, Apache .htaccess enabled
 
-## Phase 1: Design system
+## Phase B: Prove the backend (days 2-4)
+- [x] Migration: tables, RLS, rate limits, ping, purge (supabase/migrations)
+- [x] Edge Function `apply`
+- [x] Reviewers table, is_reviewer/is_admin, update_application RPC, audit log, admin view
+- [ ] Apply migration + deploy `apply` to staging
+- [ ] Add GH Pages staging origin to ALLOWED_ORIGINS
+- [ ] Automated RLS tests: anon and non-reviewer get nothing from applications/application_events/reviewers; reviewer cannot read ip_hash, edit applicant fields, or delete
+- [ ] Function tests: valid, duplicate email, honeypot, bad captcha, rate limit, oversized, wrong origin, Supabase down
+- [ ] Review: record rate-limit hit only after earlier checks pass
+
+## Phase C: Frontend foundation (days 4-8)
 - [ ] Astro project scaffold (TypeScript)
 - [ ] Tokens from legacy/styles.css as CSS variables
 - [ ] Self-host Inter
 - [ ] Components: Header (accessible mobile menu), Footer, Button, Badge, Card, ProfileCard, Section, CTAPanel, FormField
 - [ ] BaseLayout (SEO meta, skip link, meta CSP)
+- [ ] Team/program data in content files
 
-## Phase 2: Pages and content
+## Phase D: Pages, form, admin (days 8-18)
 - [ ] Home, Mission, Philosophy, Team, Programs, FAQ, Privacy, Terms, 404
-- [ ] Team data in content file; real bios; optimized images with alt text
-- [ ] Old-URL redirect stubs (.html and Phillosophy)
-
-## Phase 3: Public application pipeline
-- [x] Migration: tables, RLS, rate limits, ping, purge (supabase/migrations)
-- [x] Edge Function `apply`
-- [ ] Apply form UI (validation, loading, Turnstile, success page, mailto fallback)
-- [ ] Function tests: valid, duplicate email, bot, rate limit, oversized, Supabase down
-
-## Phase 3b: Admin
-- [x] Reviewers table, is_reviewer/is_admin, update_application RPC, audit log, admin view
-- [ ] Admin UI island (magic-link login, access denied state)
+- [ ] Optimized images with alt text; old-URL redirect stubs (.html and Phillosophy)
+- [ ] Apply form UI (validation, loading, Turnstile, thanks page, mailto fallback)
+- [ ] Admin UI island: magic-link login, access-denied state
 - [ ] Applications table: pagination, search, filters
-- [ ] Detail panel, status change, notes, activity history
-- [ ] Optional: MFA for admins, CSV export, decision email, dashboard counts
+- [ ] Detail panel, status change, notes, activity history; open from email link (?id=)
 
-## Phase 4: Quality and security
-- [ ] SEO: meta, sitemap, robots (disallow /admin), canonical, OG, JSON-LD
-- [ ] Accessibility pass (contrast of gold on dark, focus, screen reader)
-- [ ] RLS tests with anon key and non-reviewer user
-- [ ] Secret scan in CI
-
-## Phase 5: CI/CD and launch
+## Phase E: Quality gates in CI (days 14-20)
 - [x] keepalive.yml
 - [x] log-check.yml
-- [ ] ci.yml (lint, type-check, build, link check, Lighthouse, axe)
-- [ ] deploy.yml (GitHub Pages)
+- [ ] ci.yml: lint, type-check, build, link check, Lighthouse CI (95+ enforced), axe, gitleaks secret scan
+- [ ] SEO: meta, sitemap, robots (disallow /admin), canonical, OG, JSON-LD
+- [ ] Manual a11y pass: gold-on-dark contrast, keyboard, screen reader, 360px, reduced motion
+- [ ] Dependabot
 - [ ] supabase.yml (migrations + functions deploy)
-- [ ] backup.yml (encrypted weekly dump)
-- [ ] UptimeRobot monitors, Auth custom SMTP, DNS cutover
+- [ ] deploy.yml (GitHub Pages staging)
 
-## Phase 5b: cPanel production
-- [ ] Confirm cPanel plan: SSL (AutoSSL), SFTP/SSH access, Apache with .htaccess enabled
-- [ ] public/.htaccess (HTTPS, clean URLs, redirects, security headers, caching, 404)
-- [ ] Deploy workflow (SFTP/FTPS action, secrets in GitHub) or .cpanel.yml
-- [ ] Staging subdomain test on cPanel, then production cutover
-- [ ] Update Supabase Auth URLs, ALLOWED_ORIGINS, SITE_URL, Turnstile hostname
-- [ ] Post-cutover checks: headers, redirects, form, magic link, Lighthouse
+## Phase F: Security and privacy (days 18-22)
+- [ ] public/.htaccess: HTTPS, clean URLs, 301s, CSP (allow Supabase URL + challenges.cloudflare.com), HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, caching, 404
+- [ ] Admin MFA (TOTP)
+- [ ] Privacy policy (India DPDP + GDPR), consent wording, retention routine for declined applications
+- [ ] Secret rotation notes
 
-## Phase 6: Operations
+## Phase G: Operations (days 20-24)
+- [ ] backup.yml: encrypted weekly dump to private storage (never public artifacts)
+- [ ] UptimeRobot: rpc/ping + form health, alerts to owner
+- [ ] Auth custom SMTP via Resend
 - [ ] Runbook (add team member, change form field, roll back)
-- [ ] Dependabot, quarterly secret rotation, privacy retention routine
+
+## Phase H: Release (days 24-28)
+- [ ] GH Pages staging: full end-to-end test
+- [ ] cPanel deploy workflow (SFTP/FTPS, secrets in GitHub) or .cpanel.yml
+- [ ] cPanel staging subdomain: check headers, redirects, form, magic link
+- [ ] Production cutover: Supabase Auth Site URL + redirects, ALLOWED_ORIGINS, SITE_URL, Turnstile hostname, Resend domain
+- [ ] Post-cutover checks; previous build kept for rollback
+
+## Definition of ready to ship
+- CI green; Lighthouse 95+ on every page; zero axe violations
+- All RLS and function tests pass against production settings
+- Real application end to end: form -> row -> both emails -> admin -> status change in audit log
+- Backup restore verified; monitoring alerts reach the owner
+- Docs, CHANGELOG, AI_LOG current
+
+## Later (optional)
+- CSV export, decision email, dashboard counts, events, blog, startup showcase

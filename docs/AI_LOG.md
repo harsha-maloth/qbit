@@ -23,3 +23,6 @@ README now uses 'bash scripts/setup.sh'; git index marks scripts and hook execut
 
 ### 2026-10-11 12:47 UTC | decision | Final hosting target is cPanel
 Frontend ships as static files to cPanel (.htaccess for headers/redirects); GitHub Pages is dev/staging only; backend stays on Supabase pending owner confirmation. Updated DECISIONS, PROJECT_CONTEXT (cPanel go-live notes), ROADMAP (Phase 5b), AGENTS.md.
+
+### 2026-10-11 12:54 UTC | docs | Phased deployment-readiness plan and config.toml fix
+Rewrote ROADMAP into phases A-H (~4 weeks) with definition of ready to ship; backend verification (B) precedes UI. Fixed invalid '// test' line in supabase/config.toml (TOML parse error; verified with tomllib). Updated PROJECT_CONTEXT state. Not done: Phase A needs owner inputs (domain, repo name, assets, bios, analytics) and account setup.

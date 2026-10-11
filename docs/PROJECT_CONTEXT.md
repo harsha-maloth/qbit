@@ -31,7 +31,8 @@ Home, Mission, Philosophy (legacy typo "Phillosophy" fixed), Team, Programs (new
 Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Armoon Shaliq, Disha Parasu, Sudhi Sharma, Asmita Nama, Sukesh Nasina, Priyanshu Kumar, Aaryan Sharma (all Community & Operations, identical copied bio).
 
 ## Current state
-- Done: legacy audit, plan, Supabase migration, `apply` Edge Function, config, keep-alive workflow, repo + logging system.
+- Done: legacy audit, plan, Supabase migration, `apply` Edge Function, config (stray invalid line removed), keep-alive workflow, repo + logging system, phased delivery plan in ROADMAP.
+- Backend is still UNTESTED: Phase B (staging deploy + automated RLS/function tests) comes before any UI work.
 - Not started: Astro project, design system, pages, form UI, admin UI, CI/CD, launch.
 - Not provided: image assets (Collectivequbits.jpg, saatwik.png, Adavit.png, Shaliq.png, Disha Parasu.jpeg, Sudhi Sharma.png, Priyanshu.jpeg) and `scripts.js`. Add images to `public/` or `src/assets/`.
 
