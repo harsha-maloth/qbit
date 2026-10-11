@@ -3,6 +3,7 @@
 All notable changes, newest first. Maintained by `scripts/log.sh`.
 
 ## [Unreleased]
+- **decision** (2026-10-11): Switch to push-and-check-live workflow; add deploy.yml
 - **feat** (2026-10-11): Apply form UI, thanks page, and best-effort email in apply function
 - **feat** (2026-10-11): Add content pages: mission, philosophy, team, programs, faq; privacy/terms drafts
 - **chore** (2026-10-11): Upgrade to Astro 7

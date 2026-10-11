@@ -58,7 +58,7 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [ ] Manual a11y pass: gold-on-dark contrast, keyboard, screen reader, 360px, reduced motion
 - [ ] Dependabot
 - [ ] supabase.yml (migrations + functions deploy)
-- [ ] deploy.yml (GitHub Pages staging)
+- [x] deploy.yml (GitHub Pages staging): written, NOT YET RUN. Owner: Settings > Pages > Source = GitHub Actions; add repo Variables SITE_URL, PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, PUBLIC_TURNSTILE_SITE_KEY (and optional PUBLIC_CONTACT_EMAIL)
 
 ## Phase F: Security and privacy (days 18-22)
 - [ ] public/.htaccess: HTTPS, clean URLs, 301s, CSP (allow Supabase URL + challenges.cloudflare.com), HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, caching, 404

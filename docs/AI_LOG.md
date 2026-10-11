@@ -62,3 +62,6 @@ Ported legacy Mission/Philosophy text, Team from data file (initials fallback, 2
 
 ### 2026-10-11 13:31 UTC | feat | Apply form UI, thanks page, and best-effort email in apply function
 New /apply form (FormField, honeypot, consent, Turnstile explicit render, client validation with aria-invalid + live status, 422/429/captcha/413/network handling, single-use token reset, fallback link) and /apply/thanks/ (noindex). apply function: emails skipped when unconfigured, TEAM_NOTIFY_EMAIL optional, send errors swallowed (previously a missing TEAM_NOTIFY_EMAIL returned 500 after the row was saved). Added PUBLIC_CONTACT_EMAIL. NOT RUN: sandbox has no npm/Deno/Supabase access. Owner: run check/build, redeploy function, set Turnstile test secret, test a submission.
+
+### 2026-10-11 13:37 UTC | decision | Switch to push-and-check-live workflow; add deploy.yml
+No local npm. GitHub Actions runs npm ci, astro check, build and deploys to Pages. PUBLIC_* values from repo Variables. Not run yet. Staging origin must be added to ALLOWED_ORIGINS and Turnstile hostnames; base path / needs custom domain or user.github.io repo.

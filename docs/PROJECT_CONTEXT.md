@@ -30,6 +30,9 @@ Home, Mission, Philosophy (legacy typo "Phillosophy" fixed), Team, Programs (new
 ## Team (from legacy/TEAM.html, placeholder bios need replacing)
 Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Armoon Shaliq, Disha Parasu, Sudhi Sharma, Asmita Nama, Sukesh Nasina, Priyanshu Kumar, Aaryan Sharma (all Community & Operations, identical copied bio).
 
+## Workflow (decided 2026-10-11)
+No local npm/dev. Owner pushes to GitHub; Actions builds, checks and deploys to GitHub Pages; owner verifies on the live staging URL. Build errors appear in the Actions log. Staging origin must be added to Supabase function `ALLOWED_ORIGINS` and the Turnstile hostname list. Base path stays `/`, so staging needs a custom domain or a `<user>.github.io` repo (a project site at /repo/ would break links).
+
 ## Current state
 - Done: legacy audit, plan, Supabase migration, `apply` Edge Function, config (stray invalid line removed), keep-alive workflow, repo + logging system, phased delivery plan in ROADMAP.
 - Backend is still UNTESTED: Phase B (staging deploy + automated RLS/function tests) comes before any UI work.
