@@ -33,7 +33,16 @@ const faqs = [
 </BaseLayout>
 
 <style>
-  .faq { border-bottom: 1px solid var(--line); padding: 1rem 0; }
-  summary { cursor: pointer; font-weight: 700; color: var(--text); font-size: 1.05rem; }
+  .faq { border-top: 1px solid var(--line); }
+  .faq:last-child { border-bottom: 1px solid var(--line); }
+  summary {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem;
+    padding: 1.25rem 0; cursor: pointer; list-style: none;
+    font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--text);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; flex: none; font-size: 1.5rem; line-height: 1; color: var(--accent); }
+  details[open] > summary::after { content: "2"; }
   summary:hover { color: var(--accent); }
+  .faq p { padding-bottom: 1.5rem; max-width: 62ch; }
 </style>

@@ -1,9 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
-import Panel from "../../components/Panel.astro";
-import FeatureCard from "../../components/FeatureCard.astro";
-import Badge from "../../components/Badge.astro";
 import CTAPanel from "../../components/CTAPanel.astro";
 import Button from "../../components/Button.astro";
 ---
@@ -15,22 +12,42 @@ import Button from "../../components/Button.astro";
 
   <section class="section">
     <div class="container">
-      <div class="grid-2">
-        <Panel title="Our promise">We help teams take the next step by translating ambitious research into grounded products and meaningful collaborations. Our support blends product strategy, funding readiness, and systems thinking.</Panel>
-        <Panel title="Who we support">Founders and research teams building at the intersection of quantum, AI, photonics, neurotech, and complex systems. We work with leaders who care about both technical excellence and positive societal impact.</Panel>
-      </div>
+      <ul class="rows">
+        <li>
+          <h2>Our promise</h2>
+          <p>We help teams take the next step by translating ambitious research into grounded products and meaningful collaborations. Our support blends product strategy, funding readiness, and systems thinking.</p>
+        </li>
+        <li>
+          <h2>Who we support</h2>
+          <p>Founders and research teams building at the intersection of quantum, AI, photonics, neurotech, and complex systems. We work with leaders who care about both technical excellence and positive societal impact.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="grid-3 mt-lg">
-        <FeatureCard label="Vision" title="Systems-level impact">We design programs for work that changes systems, not just products. That means considering policy, culture, ethics, and long-term resilience.</FeatureCard>
-        <FeatureCard label="Practice" title="Iterate with intention">Teams move faster when every experiment is aligned to a clear problem statement, audience, and real-world signal.</FeatureCard>
-        <FeatureCard label="Support" title="Mentorship and access">We connect founders to experts in deep technology, creative practice, business, and community systems to accelerate meaningful outcomes.</FeatureCard>
-      </div>
+  <section class="section section--tint">
+    <div class="container">
+      <ul class="rows">
+        <li>
+          <h3><span class="kicker">Vision</span>Systems-level impact</h3>
+          <p>We design programs for work that changes systems, not just products. That means considering policy, culture, ethics, and long-term resilience.</p>
+        </li>
+        <li>
+          <h3><span class="kicker">Practice</span>Iterate with intention</h3>
+          <p>Teams move faster when every experiment is aligned to a clear problem statement, audience, and real-world signal.</p>
+        </li>
+        <li>
+          <h3><span class="kicker">Support</span>Mentorship and access</h3>
+          <p>We connect founders to experts in deep technology, creative practice, business, and community systems to accelerate meaningful outcomes.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="section-head mt-lg">
-        <Badge>Approach</Badge>
-        <h2 class="section-title">We combine product clarity, scientific rigor, and ethical judgment.</h2>
-        <p class="section-subtitle">Our approach is practical, experimental, and grounded in collaborative learning. We help teams move from early inquiry to launch-stage readiness.</p>
-      </div>
+  <section class="section">
+    <div class="container">
+      <h2 class="statement">We combine product clarity, scientific rigor, and ethical judgment.</h2>
+      <p class="statement-body">Our approach is practical, experimental, and grounded in collaborative learning. We help teams move from early inquiry to launch-stage readiness.</p>
     </div>
   </section>
 

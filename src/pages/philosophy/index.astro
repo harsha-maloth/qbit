@@ -1,9 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
-import Panel from "../../components/Panel.astro";
-import FeatureCard from "../../components/FeatureCard.astro";
-import Badge from "../../components/Badge.astro";
 import CTAPanel from "../../components/CTAPanel.astro";
 import Button from "../../components/Button.astro";
 ---
@@ -15,22 +12,42 @@ import Button from "../../components/Button.astro";
 
   <section class="section">
     <div class="container">
-      <div class="grid-2">
-        <Panel title="Context matters">Technical breakthroughs are strongest when they are rooted in user needs, ethical judgment, and long-term resilience.</Panel>
-        <Panel title="Collaboration over heroics">We believe complex problems are best solved by teams that bring diverse expertise, shared ownership, and open curiosity.</Panel>
-      </div>
+      <ul class="rows">
+        <li>
+          <h2>Context matters</h2>
+          <p>Technical breakthroughs are strongest when they are rooted in user needs, ethical judgment, and long-term resilience.</p>
+        </li>
+        <li>
+          <h2>Collaboration over heroics</h2>
+          <p>We believe complex problems are best solved by teams that bring diverse expertise, shared ownership, and open curiosity.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="grid-3 mt-lg">
-        <FeatureCard label="Explore" title="Novel connections">We create space for experimentation that reveals new directions at the intersection of science, design, and society.</FeatureCard>
-        <FeatureCard label="Refine" title="Thoughtful iteration">Every decision is tested for feasibility, ethics, accessibility, and long-term value.</FeatureCard>
-        <FeatureCard label="Amplify" title="Meaningful impact">We help teams create work that respects systems and improves the lives of the people it touches.</FeatureCard>
-      </div>
+  <section class="section section--tint">
+    <div class="container">
+      <ol class="rows">
+        <li>
+          <h3><span class="kicker">Explore</span>Novel connections</h3>
+          <p>We create space for experimentation that reveals new directions at the intersection of science, design, and society.</p>
+        </li>
+        <li>
+          <h3><span class="kicker">Refine</span>Thoughtful iteration</h3>
+          <p>Every decision is tested for feasibility, ethics, accessibility, and long-term value.</p>
+        </li>
+        <li>
+          <h3><span class="kicker">Amplify</span>Meaningful impact</h3>
+          <p>We help teams create work that respects systems and improves the lives of the people it touches.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-      <div class="section-head mt-lg">
-        <Badge>Why it matters</Badge>
-        <h2 class="section-title">Deep tech requires both rigor and care.</h2>
-        <p class="section-subtitle">We cultivate teams that are curious about the world they are shaping and deliberate about the futures they are helping to build.</p>
-      </div>
+  <section class="section">
+    <div class="container">
+      <h2 class="statement">Deep tech requires both rigor and care.</h2>
+      <p class="statement-body">We cultivate teams that are curious about the world they are shaping and deliberate about the futures they are helping to build.</p>
     </div>
   </section>
 

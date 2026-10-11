@@ -115,3 +115,15 @@ p { margin: 0; }
   margin-top: 1.5rem; padding: 1rem 1.25rem; border-radius: var(--radius);
   border: 1px solid var(--border-strong); background: var(--accent-soft); color: var(--text);
 }
+
+/* Ruled rows: title on the left, text on the right (home, mission, philosophy, programs) */
+.rows { list-style: none; margin: 2rem 0 0; padding: 0; border-bottom: 1px solid var(--line); }
+.rows li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.rows h2, .rows h3 { font-size: 1.3rem; letter-spacing: -0.01em; }
+.rows p { max-width: 60ch; color: var(--text-muted); line-height: 1.7; }
+.rows .kicker { display: block; margin-bottom: 0.4rem; font-family: var(--font); font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+@media (max-width: 720px) { .rows li { grid-template-columns: 1fr; gap: 0.5rem; } }
+
+/* Large closing statement on content pages */
+.statement { max-width: 24ch; font-size: clamp(1.75rem, 3.4vw, 3rem); line-height: 1.12; letter-spacing: -0.03em; }
+.statement-body { margin-top: 1.25rem; max-width: 62ch; color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; }
