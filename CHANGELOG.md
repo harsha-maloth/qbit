@@ -3,6 +3,7 @@
 All notable changes, newest first. Maintained by `scripts/log.sh`.
 
 ## [Unreleased]
+- **feat** (2026-10-11): Redesign step 2: home page with wave hero
 - **feat** (2026-10-11): Redesign step 1: palette C tokens, fonts, shell restyle
 - **feat** (2026-10-11): Configurable base path for staging (withBase helper)
 - **decision** (2026-10-11): Switch to push-and-check-live workflow; add deploy.yml

@@ -1,98 +1,95 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
-import Badge from "../components/Badge.astro";
-import FeatureCard from "../components/FeatureCard.astro";
 import ProfileCard from "../components/ProfileCard.astro";
 import CTAPanel from "../components/CTAPanel.astro";
 import { site } from "../data/site";
 import { team } from "../data/team";
+import { programs } from "../data/programs";
 
 const preview = team.slice(0, 3);
-const highlights = [
-  { title: "Startup Labs", text: "Guided cohorts for early-stage teams building hardware, optics, quantum systems, and responsible AI." },
-  { title: "Research Network", text: "Access cross-disciplinary mentors, domain experts, and collaborators in tech, design, and policy." },
-  { title: "Impact Focus", text: "We prioritize work that advances sustainability, equity, and real-world human value." },
-  { title: "Global Community", text: "Join a growing ecosystem of scientists, founders, engineers, and artists solving hard problems together." },
+const offers = [
+  { title: "Capital-ready storytelling", text: "We help founders translate complex research into clear narratives for investors, partners, and customers." },
+  { title: "Labs, mentors, and collaborators", text: "Work with technical experts from quantum computing, photonics, neurotech, synthetic biology, and beyond." },
+  { title: "Operational support", text: "From legal frameworks to product strategy, our community supports the full lifecycle of ambitious ventures." },
+];
+const reasons = [
+  { title: "Peer community", text: "Connect with ambitious founders who are building at the edge of science and design." },
+  { title: "Curated mentorship", text: "Work with advisors who have launched deep-tech ventures, research labs, and social impact efforts." },
+  { title: "Launch support", text: "Get help with product-market fit, pitch refinement, and early go-to-market strategy." },
 ];
 ---
 
 <BaseLayout title={site.name} description={site.description}>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <Badge>Deep tech incubator for bold teams</Badge>
-        <h1>Collective Qubits is where visionary minds, hybrid systems, and future-ready ideas converge.</h1>
-        <p>We support founders, researchers, and creative technologists through mentorship, network access, and launch guidance. Our mission is to turn complex science into compelling work that serves people and planet.</p>
+  <section class="hero-home">
+    <div class="container hero-home-grid">
+      <div>
+        <h1>Where deep research meets the founders who build with it.</h1>
+        <p class="lead">We support founders, researchers, and creative technologists through mentorship, network access, and launch guidance. Our mission is to turn complex science into work that serves people and planet.</p>
         <div class="hero-actions">
-          <Button href="/mission/">Our Mission</Button>
-          <Button href="/apply/" variant="ghost">Apply Now</Button>
+          <Button href="/apply/">Apply now</Button>
+          <Button href="/mission/" variant="ghost">Our mission</Button>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="visual-panel">
-          {highlights.map((h) => (
-            <div class="info-card">
-              <h2>{h.title}</h2>
-              <p>{h.text}</p>
-            </div>
-          ))}
-        </div>
+      <div class="wave-panel">
+        <canvas id="wave" aria-hidden="true"></canvas>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="create">
+  <section class="section" aria-labelledby="offer">
     <div class="container">
-      <div class="section-head">
-        <Badge>What we create</Badge>
-        <h2 class="section-title" id="create">A launchpad for multidisciplinary innovation</h2>
-        <p class="section-subtitle">From quantum-enabled sensing to AI ethics platforms, our programs help teams accelerate with clarity, credibility, and momentum.</p>
-      </div>
-      <div class="grid-3 mt-lg">
-        <FeatureCard label="Fast-track support" title="Capital-ready storytelling">We help founders translate complex research into persuasive narratives for investors, partners, and customers.</FeatureCard>
-        <FeatureCard label="Deep domain access" title="Labs, mentors, and collaborators">Tap into technical experts from quantum computing, photonics, neurotech, synthetic biology, and beyond.</FeatureCard>
-        <FeatureCard label="Growth infrastructure" title="Operational support">From legal frameworks to product strategy, our community supports the full lifecycle of ambitious ventures.</FeatureCard>
-      </div>
+      <h2 class="section-title" id="offer">What teams get from us</h2>
+      <p class="section-subtitle">Practical help for turning research into a company, from the first story you tell to the first customer.</p>
+      <ul class="rows">
+        {offers.map((o) => (
+          <li>
+            <h3>{o.title}</h3>
+            <p>{o.text}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
-  <section class="section section--tint" aria-labelledby="fields">
+  <section class="section section--tint" aria-labelledby="programs">
     <div class="container">
-      <div class="section-head">
-        <Badge>Fields we focus on</Badge>
-        <h2 class="section-title" id="fields">Complex systems need collective intelligence</h2>
-        <p class="section-subtitle">Our work lives at the intersection of science, technology, and society. We support teams building in these areas.</p>
-      </div>
-      <div class="grid-3 mt-lg">
-        <FeatureCard label="Quantum systems" title="Quantum sensing, control, and optimization">Practical applications that bridge research-grade physics with near-term product value.</FeatureCard>
-        <FeatureCard label="Applied AI" title="Responsible intelligence">Human-centered AI solutions built for trust, fairness, and explainability.</FeatureCard>
-        <FeatureCard label="Emergent interfaces" title="Neurotech, photonics, and immersive systems">New modalities that deepen human-machine collaboration and design experiences that feel effortless.</FeatureCard>
+      <h2 class="section-title" id="programs">Programs</h2>
+      <p class="section-subtitle">We support teams building at the intersection of science, technology, and society.</p>
+      <ul class="rows">
+        {programs.map((p) => (
+          <li>
+            <h3>{p.name}</h3>
+            <p>{p.summary}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="hero-actions">
+        <Button href="/programs/" variant="ghost">See all programs</Button>
       </div>
     </div>
   </section>
 
   <section class="section" aria-labelledby="why">
-    <div class="container">
-      <div class="section-head">
-        <Badge>Why Collective Qubits</Badge>
+    <div class="container split">
+      <div>
         <h2 class="section-title" id="why">We build teams, not just products</h2>
-        <p class="section-subtitle">Our community supports founders through shared learning, deliberate experimentation, and a culture that values bold thinking over incremental change.</p>
+        <p class="section-subtitle">Shared learning, deliberate experimentation, and a culture that values bold thinking over incremental change.</p>
       </div>
-      <div class="grid-3 mt-lg">
-        <FeatureCard title="Peer community">Connect with ambitious founders who are building at the edge of science and design.</FeatureCard>
-        <FeatureCard title="Curated mentorship">Work with advisors who have launched deep-tech ventures, research labs, and social impact efforts.</FeatureCard>
-        <FeatureCard title="Launch support">Get help with product-market fit, pitch refinement, and early go-to-market strategy.</FeatureCard>
-      </div>
+      <ul class="rows rows--stack">
+        {reasons.map((r) => (
+          <li>
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <section class="section section--tint" aria-labelledby="team">
     <div class="container">
-      <div class="section-head">
-        <Badge>Team preview</Badge>
-        <h2 class="section-title" id="team">A network of builders, thinkers, and operators</h2>
-      </div>
+      <h2 class="section-title" id="team">The people behind it</h2>
       <div class="grid-3 mt-lg">
         {preview.map((m) => <ProfileCard name={m.name} role={m.role} photo={m.photo} bio={m.bio} />)}
       </div>
@@ -103,9 +100,42 @@ const highlights = [
   </section>
 
   <section class="section">
-    <CTAPanel badge="Ready to join?" title="Apply now and help shape the next wave of technology and systems thinking.">
-      We are looking for founders, researchers, and teams who are building with ambition, clarity, and purpose. Tell us the problem, why you're the right team, and what you need to build it.
-      <Button slot="actions" href="/apply/">Start Your Application</Button>
+    <CTAPanel title="Apply now and help shape the next wave of technology.">
+      Tell us the problem, why you're the right team, and what you need to build it.
+      <Button slot="actions" href="/apply/">Start your application</Button>
     </CTAPanel>
   </section>
 </BaseLayout>
+
+<script>
+  import "../scripts/wave";
+</script>
+
+<style>
+  .hero-home { padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(3rem, 5vw, 4.5rem); }
+  .hero-home-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 3rem; align-items: center; }
+  h1 { max-width: 18ch; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.02; letter-spacing: -0.04em; }
+  .lead { margin-top: 1.5rem; max-width: 52ch; color: var(--text-muted); font-size: clamp(1.05rem, 1.1vw, 1.2rem); line-height: 1.7; }
+  .wave-panel {
+    aspect-ratio: 4 / 5; min-height: 320px; overflow: hidden;
+    border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface);
+  }
+  #wave { display: block; width: 100%; height: 100%; }
+
+  .rows { list-style: none; margin: 2rem 0 0; padding: 0; border-bottom: 1px solid var(--line); }
+  .rows li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+  .rows h3 { font-size: 1.3rem; letter-spacing: -0.01em; }
+  .rows p { max-width: 60ch; color: var(--text-muted); line-height: 1.7; }
+  .rows--stack { margin-top: 0; }
+  .rows--stack li { grid-template-columns: 1fr; gap: 0.5rem; }
+
+  .split { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; }
+
+  @media (max-width: 960px) {
+    .hero-home-grid, .split { grid-template-columns: 1fr; gap: 2rem; }
+    .wave-panel { aspect-ratio: 16 / 10; min-height: 0; }
+  }
+  @media (max-width: 720px) {
+    .rows li { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+</style>

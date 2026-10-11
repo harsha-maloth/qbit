@@ -52,7 +52,7 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 
 ## Redesign (palette C)
 - [x] Step 1: tokens, fonts, global styles, header/footer/buttons/cards/forms restyled (UNBUILT: check the Actions run)
-- [ ] Step 2: home page + wave hero (external canvas script, reduced-motion fallback)
+- [x] Step 2: home page + wave hero (src/scripts/wave.ts canvas, static under reduced-motion). UNBUILT: check the Actions run
 - [ ] Step 3: inner pages (mission, philosophy, team, programs, FAQ) editorial layouts
 - [ ] Step 4: apply form + thanks polish
 - [ ] Step 5: contrast, keyboard, 360px, reduced-motion pass

@@ -71,3 +71,6 @@ BASE_PATH env drives Astro base; src/lib/url.ts withBase applied to Header, Foot
 
 ### 2026-10-11 14:00 UTC | feat | Redesign step 1: palette C tokens, fonts, shell restyle
 Light corporate theme: indigo/azure/steel on paper. New fonts (Bricolage Grotesque, Instrument Sans). Restyled Header, Footer, Button, Badge, cards, FormField, CTAPanel, apply page; new logo/favicon. deploy.yml uses npm install (lockfile stale). NOT BUILT: check Actions run.
+
+### 2026-10-11 14:02 UTC | feat | Redesign step 2: home page with wave hero
+New home layout: canvas wave hero (src/scripts/wave.ts), ruled rows for offers, programs and reasons, team strip, dark CTA band. Removed info cards and eyebrow badges. NOT BUILT: check the Actions run.
