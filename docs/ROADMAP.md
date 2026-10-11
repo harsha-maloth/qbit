@@ -10,7 +10,8 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [x] Fix invalid `// test` line in supabase/config.toml (was breaking TOML parse)
 - [ ] OWNER: domain, GitHub repo name, logo (SVG), team photos, real bios, analytics choice, confirm backend stays on Supabase
 - [ ] Create GitHub repo, push, enable Pages (Actions source), branch protection
-- [ ] Supabase staging + prod projects
+- [x] Supabase staging project created (ref jmnerioqziikkqzuscpp; URL + anon key are public values). Prod project still todo
+- [ ] Supabase prod project
 - [ ] Resend domain (SPF/DKIM), Turnstile site
 - [ ] Check cPanel plan: AutoSSL, SFTP/SSH, Apache .htaccess enabled
 
@@ -18,7 +19,8 @@ Order matters: prove the backend (B) before building UI on it. A and B need no f
 - [x] Migration: tables, RLS, rate limits, ping, purge (supabase/migrations)
 - [x] Edge Function `apply`
 - [x] Reviewers table, is_reviewer/is_admin, update_application RPC, audit log, admin view
-- [ ] Apply migration + deploy `apply` to staging
+- [ ] Apply migration + deploy `apply` to staging (needs `supabase link` + DB password; owner or CI runs it)
+- [x] scripts/check-anon.sh: anon-key RLS, RPC, signup and apply-function checks (owner runs it; sandbox cannot reach supabase.co)
 - [ ] Add GH Pages staging origin to ALLOWED_ORIGINS
 - [ ] Automated RLS tests: anon and non-reviewer get nothing from applications/application_events/reviewers; reviewer cannot read ip_hash, edit applicant fields, or delete
 - [ ] Function tests: valid, duplicate email, honeypot, bad captcha, rate limit, oversized, wrong origin, Supabase down

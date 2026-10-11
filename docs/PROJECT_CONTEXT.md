@@ -44,6 +44,9 @@ Saatwik Chatkara (Founder & CEO), Advait M Dhola (Technical Advisor), Mohamed Ar
 4. Which analytics tool?
 5. Extra features wanted later (events, blog, startup showcase)?
 
+## Supabase staging project
+URL: https://jmnerioqziikkqzuscpp.supabase.co (ref `jmnerioqziikkqzuscpp`). Anon key is public by design; keep it in env/GitHub secrets, never the service role key. Migration/function deploy state: unknown, run `scripts/check-anon.sh` to find out.
+
 ## Environment variables
 Frontend (public, build time): `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`
 Edge Function secrets: `TURNSTILE_SECRET`, `RESEND_API_KEY`, `MAIL_FROM`, `TEAM_NOTIFY_EMAIL`, `ALLOWED_ORIGINS`, `IP_HASH_SALT`, `SITE_URL` (service role key and URL are provided by Supabase)

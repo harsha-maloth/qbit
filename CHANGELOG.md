@@ -3,6 +3,7 @@
 All notable changes, newest first. Maintained by `scripts/log.sh`.
 
 ## [Unreleased]
+- **feat** (2026-10-11): Add anon-key verification script and record staging project
 - **docs** (2026-10-11): Session 2 handoff
 - **docs** (2026-10-11): Phased deployment-readiness plan and config.toml fix
 - **decision** (2026-10-11): Final hosting target is cPanel

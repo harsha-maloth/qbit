@@ -35,3 +35,6 @@ Rewrote ROADMAP into phases A-H (~4 weeks) with definition of ready to ship; bac
 
 ### 2026-10-11 12:54 UTC | docs | Session 2 handoff
 Handoff block appended.
+
+### 2026-10-11 12:56 UTC | feat | Add anon-key verification script and record staging project
+scripts/check-anon.sh covers ping, table reads, direct insert, admin RPCs, signup, apply origin/CORS/validation. Could not run: sandbox egress blocks supabase.co (403 from proxy), so project state is unverified. Staging ref recorded in PROJECT_CONTEXT; no keys committed.
