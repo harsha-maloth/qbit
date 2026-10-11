@@ -47,3 +47,6 @@ Phase C source: package.json (astro ^5, sitemap, fontsource inter, check), astro
 
 ### 2026-10-11 13:17 UTC | chore | Add package-lock.json
 First local npm install and successful build.
+
+### 2026-10-11 13:21 UTC | fix | Fix astro check findings
+FormField type narrowed to valid input types; removed unused import in Header. npm audit: 3 advisories (astro<=7.2.7 and deps), not reachable in static output; upgrade to Astro 7 tracked on a branch.
