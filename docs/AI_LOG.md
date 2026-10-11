@@ -53,3 +53,6 @@ FormField type narrowed to valid input types; removed unused import in Header. n
 
 ### 2026-10-11 13:25 UTC | chore | Upgrade to Astro 7
 Upgraded astro 5 to 7.3.8, @astrojs/check and sitemap. check and build pass; npm audit clean.
+
+### 2026-10-11 13:26 UTC | chore | Upgrade to Astro 7
+astro 5.18 -> 7.3.8, @astrojs/check 0.9.10, @astrojs/sitemap 3.7.4. astro check 0 errors, build 7 pages, npm audit 0 vulnerabilities.
