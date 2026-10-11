@@ -4,6 +4,7 @@ import PageHeader from "../../components/PageHeader.astro";
 import FormField from "../../components/FormField.astro";
 import Button from "../../components/Button.astro";
 import { site } from "../../data/site";
+import { withBase } from "../../lib/url";
 
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? "";
 const endpoint = supabaseUrl ? `${supabaseUrl.replace(/\/$/, "")}/functions/v1/apply` : "";
@@ -19,7 +20,7 @@ const contact = import.meta.env.PUBLIC_CONTACT_EMAIL ?? "";
   <section class="section">
     <div class="container">
       <div class="form-card">
-        <form id="apply-form" novalidate data-endpoint={endpoint} data-sitekey={siteKey} data-contact={contact}>
+        <form id="apply-form" novalidate data-thanks={withBase("/apply/thanks/")} data-endpoint={endpoint} data-sitekey={siteKey} data-contact={contact}>
           <div class="form-grid">
             <FormField id="name" label="Full name" required autocomplete="name" minlength={2} maxlength={120} />
             <FormField id="email" label="Email address" type="email" required autocomplete="email" maxlength={254} />
@@ -44,7 +45,7 @@ const contact = import.meta.env.PUBLIC_CONTACT_EMAIL ?? "";
 
             <div class="consent">
               <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error" />
-              <label for="consent">I agree that Collective Qubits may store and use these details to review my application, as described in the <a href="/privacy/">Privacy Policy</a>.<span class="sr-only"> (required)</span></label>
+              <label for="consent">I agree that Collective Qubits may store and use these details to review my application, as described in the <a href={withBase("/privacy/")}>Privacy Policy</a>.<span class="sr-only"> (required)</span></label>
             </div>
             <p class="error" id="consent-error" role="alert" hidden></p>
 

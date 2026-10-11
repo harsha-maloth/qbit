@@ -32,7 +32,7 @@ Append a "Handoff" block to `docs/AI_LOG.md`: what is done, what is half-done, e
 - Public signups stay disabled. Reviewers log in by **magic link only** (no OAuth).
 - `legacy/` is reference only. Do not edit it.
 - Every page needs unique title and description, accessible markup (WCAG 2.2 AA), and works at 360px width.
-- Final hosting is **cPanel (static files + .htaccess)**; GitHub Pages is dev/staging only. GitHub Pages cannot set headers, so keep a meta CSP as a fallback and put real headers/redirects in `public/.htaccess`. Keep base path `/`.
+- Final hosting is **cPanel (static files + .htaccess)**; GitHub Pages is dev/staging only. GitHub Pages cannot set headers, so keep a meta CSP as a fallback and put real headers/redirects in `public/.htaccess`. Production base path is `/`; staging may set BASE_PATH (use `withBase()` from `src/lib/url.ts` for every internal href/src).
 - Never commit cPanel/FTP credentials.
 - Free-tier Supabase pauses when idle: do not remove `keepalive.yml`.
 

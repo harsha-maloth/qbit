@@ -1,6 +1,7 @@
 ---
 import { nav, site, footerLinks } from "../data/site";
 import { programs } from "../data/programs";
+import { withBase } from "../lib/url";
 
 const year = new Date().getFullYear();
 const quick = [...nav.filter((n) => !n.external && n.href !== "/"), ...footerLinks];
@@ -15,7 +16,7 @@ const quick = [...nav.filter((n) => !n.external && n.href !== "/"), ...footerLin
     <nav aria-label="Footer">
       <h2>Quick links</h2>
       <ul>
-        {quick.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+        {quick.map((n) => <li><a href={withBase(n.href)}>{n.label}</a></li>)}
       </ul>
     </nav>
     <div>

@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/url";
 interface Props {
   href?: string;
   variant?: "primary" | "ghost";
@@ -7,10 +8,11 @@ interface Props {
 }
 const { href, variant = "primary", type = "button", disabled = false } = Astro.props;
 const external = href?.startsWith("http");
+const finalHref = href ? withBase(href) : undefined;
 ---
 
 {href ? (
-  <a class:list={["btn", variant]} href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+  <a class:list={["btn", variant]} href={finalHref} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
     <slot />
   </a>
 ) : (

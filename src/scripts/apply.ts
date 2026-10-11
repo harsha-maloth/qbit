@@ -42,6 +42,7 @@ function init(form: HTMLFormElement) {
   const endpoint = form.dataset.endpoint ?? "";
   const siteKey = form.dataset.sitekey ?? "";
   const contact = form.dataset.contact ?? "";
+  const thanks = form.dataset.thanks ?? "/apply/thanks/";
   const status = document.getElementById("form-status") as HTMLElement;
   const box = document.getElementById("turnstile-box") as HTMLElement;
   const submit = form.querySelector<HTMLButtonElement>("button[type=submit]") as HTMLButtonElement;
@@ -147,7 +148,7 @@ function init(form: HTMLFormElement) {
         signal: ctrl.signal,
       });
       if (res.ok) {
-        window.location.assign("/apply/thanks/");
+        window.location.assign(thanks);
         return;
       }
       const data = (await res.json().catch(() => ({}))) as { error?: string; fields?: Record<string, string[]> };

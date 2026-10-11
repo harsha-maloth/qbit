@@ -1,17 +1,21 @@
 ---
 import { nav } from "../data/site";
+import { withBase } from "../lib/url";
 
 interface Props {
   currentPath: string;
 }
 const { currentPath } = Astro.props;
-const isActive = (href: string) => (href === "/" ? currentPath === "/" : currentPath.startsWith(href));
+const isActive = (href: string) => {
+  const full = withBase(href);
+  return href === "/" ? currentPath === full : currentPath.startsWith(full);
+};
 ---
 
 <header class="site-header">
   <div class="container navbar">
-    <a class="brand" href="/">
-      <img src="/logo.svg" alt="" width="48" height="48" />
+    <a class="brand" href={withBase("/")}>
+      <img src={withBase("/logo.svg")} alt="" width="48" height="48" />
       <span class="brand-title">Collective <span>Qubits</span></span>
       <span class="sr-only">home</span>
     </a>
@@ -27,7 +31,7 @@ const isActive = (href: string) => (href === "/" ? currentPath === "/" : current
         {nav.map((item) => (
           <li>
             <a
-              href={item.href}
+              href={withBase(item.href)}
               aria-current={!item.external && isActive(item.href) ? "page" : undefined}
               target={item.external ? "_blank" : undefined}
               rel={item.external ? "noopener noreferrer" : undefined}

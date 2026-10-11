@@ -65,3 +65,6 @@ New /apply form (FormField, honeypot, consent, Turnstile explicit render, client
 
 ### 2026-10-11 13:37 UTC | decision | Switch to push-and-check-live workflow; add deploy.yml
 No local npm. GitHub Actions runs npm ci, astro check, build and deploys to Pages. PUBLIC_* values from repo Variables. Not run yet. Staging origin must be added to ALLOWED_ORIGINS and Turnstile hostnames; base path / needs custom domain or user.github.io repo.
+
+### 2026-10-11 13:41 UTC | feat | Configurable base path for staging (withBase helper)
+BASE_PATH env drives Astro base; src/lib/url.ts withBase applied to Header, Footer, Button, BaseLayout, apply page and apply.ts redirect. deploy.yml passes vars.BASE_PATH. Not built (no npm here): check the Actions run.
